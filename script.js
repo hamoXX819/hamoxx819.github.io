@@ -4,6 +4,7 @@ const menuToggle = document.querySelector('.menu-toggle');
 const menu = document.getElementById('menu');
 const progressBar = document.getElementById('scroll-progress-bar');
 const sceneIndicator = document.getElementById('scene-indicator');
+const header = document.querySelector('header');
 
 const root = document.documentElement;
 let savedTheme = null;
@@ -17,6 +18,15 @@ try {
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+const updateHeaderOffset = () => {
+  if (!header) {
+    return;
+  }
+
+  const offset = Math.ceil(header.getBoundingClientRect().height + 12);
+  root.style.setProperty('--header-offset', `${offset}px`);
+};
+
 const applyTheme = (theme) => {
   root.dataset.theme = theme;
   themeToggle.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
@@ -25,6 +35,7 @@ const applyTheme = (theme) => {
 };
 
 applyTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+updateHeaderOffset();
 
 themeToggle.addEventListener('click', () => {
   const nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
@@ -79,7 +90,17 @@ document.addEventListener('keydown', (e) => {
 // ページロード時のフェードインアニメーション
 window.addEventListener('load', () => {
   document.body.classList.add('loaded');
+  updateHeaderOffset();
 });
+
+window.addEventListener('resize', updateHeaderOffset, { passive: true });
+
+if (window.ResizeObserver && header) {
+  const headerObserver = new ResizeObserver(() => {
+    updateHeaderOffset();
+  });
+  headerObserver.observe(header);
+}
 
 // スクロール時のカード出現アニメーション
 const observerOptions = {
