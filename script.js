@@ -42,6 +42,14 @@ menuToggle.addEventListener('click', () => {
   const expanded = menuToggle.classList.contains('active');
   menuToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
   menu.setAttribute('aria-hidden', expanded ? 'false' : 'true');
+  if (expanded) {
+    // focus first link for keyboard users
+    const firstLink = menu.querySelector('a');
+    if (firstLink) firstLink.focus();
+  } else {
+    // return focus to toggle
+    menuToggle.focus();
+  }
 });
 
 // リンククリック時にメニューを閉じる
@@ -53,6 +61,19 @@ navLinks.forEach(link => {
     menuToggle.setAttribute('aria-expanded', 'false');
     menu.setAttribute('aria-hidden', 'true');
   });
+});
+
+// Close menu with Escape and ensure focus management
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' || e.key === 'Esc') {
+    if (menu.classList.contains('active')) {
+      menuToggle.classList.remove('active');
+      menu.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menu.setAttribute('aria-hidden', 'true');
+      menuToggle.focus();
+    }
+  }
 });
 
 // ページロード時のフェードインアニメーション

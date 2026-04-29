@@ -205,6 +205,13 @@ header {
   align-items: center;
 }
 
+.header-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-left: auto;
+}
+
 header h1 {
   margin: 0;
   font-size: 22px;
@@ -738,6 +745,12 @@ footer {
   .menu-toggle {
     display: flex;
     order: 2;
+  }
+
+  .header-actions {
+    order: 2;
+    width: auto;
+    justify-content: flex-end;
   }
 
   nav {
