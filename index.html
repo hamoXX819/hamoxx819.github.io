@@ -55,8 +55,14 @@
   </nav>
 </header>
 
+<div class="scroll-progress" aria-hidden="true">
+  <span id="scroll-progress-bar"></span>
+</div>
+
+<div class="scene-indicator" id="scene-indicator" aria-hidden="true">INTRO</div>
+
 <main>
-  <section class="hero">
+  <section class="hero" data-scene="intro">
     <div class="hero-copy">
       <p class="eyebrow">Web & App Development</p>
       <h2>課題解決第一</h2>
@@ -72,7 +78,7 @@
     </figure>
   </section>
 
-  <section id="skills">
+  <section id="skills" data-scene="skills">
     <h2>技術スタック</h2>
     <div class="skill-grid">
       <article class="skill-card">
@@ -102,7 +108,7 @@
     </div>
   </section>
 
-  <section id="works">
+  <section id="works" data-scene="works">
     <h2>制作物</h2>
 
     <div class="card">
@@ -148,7 +154,7 @@
     </div>
   </section>
 
-  <section id="contact">
+  <section id="contact" data-scene="contact">
     <h2>連絡先</h2>
     <div class="contact-actions">
       <a class="btn btn-primary" href="mailto:moishi819@gmail.com?subject=お問い合わせ%20from%20portfolio">メールで相談</a>

@@ -1,12 +1,13 @@
 /* CSS Variables */
 :root {
-  --bg: #f6f8fb;
+  --bg: #eaf7ff;
   --text: #1f2937;
   --sub: #6b7280;
   --main: #2563eb;
+  --scene-main: #2563eb;
   --card: #ffffff;
-  --border: #e5e7eb;
-  --header-bg: rgba(255, 255, 255, 0.85);
+  --border: #cfe6f5;
+  --header-bg: rgba(234, 247, 255, 0.88);
 }
 
 html[data-theme="dark"] {
@@ -40,6 +41,26 @@ html[data-theme="dark"] {
   }
 }
 
+@keyframes slideInTitle {
+  from {
+    opacity: 0;
+    transform: translateX(-26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes driftPattern {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-80px, -40px, 0);
+  }
+}
+
 /* Reset & Base Styles */
 * {
   box-sizing: border-box;
@@ -50,12 +71,102 @@ html {
 }
 
 body {
+  position: relative;
+  isolation: isolate;
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: var(--bg);
+  background:
+    radial-gradient(circle at 10% 10%, rgba(147, 210, 255, 0.28), transparent 36%),
+    radial-gradient(circle at 90% 0%, rgba(126, 193, 255, 0.2), transparent 34%),
+    linear-gradient(180deg, #f3fbff 0%, var(--bg) 52%, #e6f4ff 100%);
   color: var(--text);
   line-height: 1.8;
   animation: fadeIn 0.6s ease-in-out;
+  transition: color 0.45s ease;
+}
+
+body.scene-intro {
+  --scene-main: #2563eb;
+}
+
+body.scene-skills {
+  --scene-main: #0284c7;
+}
+
+body.scene-works {
+  --scene-main: #0f766e;
+}
+
+body.scene-contact {
+  --scene-main: #1d4ed8;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.75;
+  transition: background 0.8s ease, opacity 0.6s ease;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(152, 219, 255, 0.35), transparent 42%),
+    radial-gradient(circle at 88% 12%, rgba(112, 188, 255, 0.2), transparent 36%);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: -20% -10%;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.2;
+  background-image:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0) 40%),
+    repeating-linear-gradient(130deg, rgba(56, 189, 248, 0.14) 0 2px, transparent 2px 28px);
+  animation: driftPattern 22s linear infinite;
+  transition: opacity 0.6s ease;
+}
+
+body.scene-intro::before {
+  background:
+    radial-gradient(circle at 12% 20%, rgba(156, 223, 255, 0.38), transparent 44%),
+    radial-gradient(circle at 86% 12%, rgba(123, 197, 255, 0.22), transparent 38%);
+}
+
+body.scene-skills::before {
+  background:
+    radial-gradient(circle at 20% 12%, rgba(128, 214, 255, 0.34), transparent 44%),
+    radial-gradient(circle at 82% 28%, rgba(100, 177, 255, 0.24), transparent 40%);
+}
+
+body.scene-works::before {
+  background:
+    radial-gradient(circle at 14% 10%, rgba(107, 188, 255, 0.34), transparent 43%),
+    radial-gradient(circle at 88% 72%, rgba(97, 173, 255, 0.24), transparent 40%);
+}
+
+body.scene-contact::before {
+  background:
+    radial-gradient(circle at 18% 70%, rgba(127, 206, 255, 0.3), transparent 42%),
+    radial-gradient(circle at 84% 14%, rgba(92, 160, 235, 0.22), transparent 38%);
+}
+
+body.scene-skills::after {
+  opacity: 0.24;
+}
+
+body.scene-works::after {
+  opacity: 0.28;
+}
+
+body.scene-contact::after {
+  opacity: 0.22;
+}
+
+body.scene-works .card,
+body.scene-contact .card {
+  box-shadow: 0 16px 36px rgba(37, 99, 235, 0.12);
 }
 
 /* Header & Navigation */
@@ -75,7 +186,55 @@ header {
 header h1 {
   margin: 0;
   font-size: 22px;
-  color: var(--main);
+  color: var(--scene-main);
+  transition: color 0.45s ease;
+}
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(4px);
+}
+
+.scroll-progress #scroll-progress-bar {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-origin: left center;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, color-mix(in srgb, var(--scene-main) 65%, #7dd3fc), var(--scene-main));
+  transition: background 0.45s ease;
+}
+
+.scene-indicator {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 18;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  color: white;
+  background: color-mix(in srgb, var(--scene-main) 84%, #0f172a);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  transition: background 0.45s ease, transform 0.3s ease;
+}
+
+body.scene-intro .scene-indicator {
+  transform: translateY(0);
+}
+
+body.scene-skills .scene-indicator,
+body.scene-works .scene-indicator,
+body.scene-contact .scene-indicator {
+  transform: translateY(-2px);
 }
 
 .header-about {
@@ -119,7 +278,7 @@ header h1 {
 nav a:focus-visible,
 .card-links a:focus-visible,
 #contact a:focus-visible {
-  outline: 2px solid var(--main);
+  outline: 2px solid var(--scene-main);
   outline-offset: 3px;
 }
 
@@ -133,11 +292,18 @@ nav a {
   color: var(--text);
   text-decoration: none;
   font-weight: 600;
-  transition: color 0.3s;
+  transition: color 0.3s, border-color 0.3s;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
 }
 
 nav a:hover {
-  color: var(--main);
+  color: var(--scene-main);
+}
+
+nav a.is-active {
+  color: var(--scene-main);
+  border-bottom-color: var(--scene-main);
 }
 
 /* Hamburger Menu */
@@ -189,6 +355,13 @@ section h2 {
   margin-bottom: 24px;
   position: relative;
   padding-bottom: 12px;
+  opacity: 0;
+  transform: translateX(-26px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+section.in-view h2 {
+  animation: slideInTitle 0.6s ease-out forwards;
 }
 
 section h2::after {
@@ -196,9 +369,10 @@ section h2::after {
   display: block;
   width: 56px;
   height: 4px;
-  background: var(--main);
+  background: var(--scene-main);
   border-radius: 999px;
   margin-top: 8px;
+  transition: background 0.45s ease;
 }
 
 main {
@@ -226,9 +400,10 @@ main {
   margin: 0 0 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--main);
+  color: var(--scene-main);
   font-size: 12px;
   font-weight: 700;
+  transition: color 0.45s ease;
 }
 
 .hero h2 {
@@ -260,7 +435,8 @@ main {
 
 .hero-points span {
   padding: 10px 14px;
-  color: var(--main);
+  color: var(--scene-main);
+  transition: color 0.45s ease;
 }
 
 .profile-list {
@@ -396,7 +572,7 @@ html[data-theme="dark"] .hero-visual img {
 }
 
 .card-links a {
-  color: var(--main);
+  color: var(--scene-main);
   text-decoration: none;
   font-weight: 700;
 }
@@ -418,7 +594,7 @@ html[data-theme="dark"] .hero-visual img {
 }
 
 .btn-primary {
-  background: var(--main);
+  background: var(--scene-main);
   color: white;
   border: 1px solid transparent;
 }
@@ -443,14 +619,14 @@ html[data-theme="dark"] .tag-list span {
 
 /* Contact Section */
 #contact a {
-  color: var(--main);
+  color: var(--scene-main);
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s;
 }
 
 #contact a:hover {
-  color: var(--main);
+  color: var(--scene-main);
   text-decoration: underline;
 }
 
@@ -576,5 +752,12 @@ footer {
 
   .card p {
     font-size: 14px;
+  }
+
+  .scene-indicator {
+    right: 12px;
+    bottom: 12px;
+    font-size: 10px;
+    letter-spacing: 0.12em;
   }
 }
