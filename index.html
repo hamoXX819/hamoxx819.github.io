@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ポートフォリオ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>ハモイ Portfolio</h1>
+  <button class="menu-toggle" aria-label="メニュー">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <nav id="menu">
+    <a href="#about">自己紹介</a>
+    <a href="#works">制作物</a>
+    <a href="#contact">連絡</a>
+  </nav>
+</header>
+
+<section id="about">
+  <h2>自己紹介</h2>
+  <p>IT分野に転向し、Flutter・Supabaseなどを使った開発を行っています。</p>
+</section>
+
+<section id="works">
+  <h2>制作物</h2>
+
+  <div class="card">
+    <h3>学校ポータルアプリ</h3>
+    <p>Flutter + Supabaseで開発した、学生向けポータルアプリです。</p>
+  </div>
+
+  <div class="card">
+    <h3>出欠管理システム</h3>
+    <p>PHP + MySQLで開発した、授業の出欠を管理するWebシステムです。</p>
+  </div>
+
+  <div class="card">
+    <h3>防災アプリ</h3>
+    <p>災害情報・避難支援を目的とした地域向けアプリです。</p>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>連絡先</h2>
+  <p><a href="https://github.com/hamoXX819" target="_blank" rel="noopener noreferrer">GitHub: https://github.com/hamoXX819</a></p>
+</section>
+
+<footer>
+  <p>© 2026 裕吏</p>
+</footer>
+
+<script>
+  // ハンバーガーメニューの toggle 機能
+  const menuToggle = document.querySelector('.menu-toggle');
+  const menu = document.getElementById('menu');
+
+  menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    menu.classList.toggle('active');
+  });
+
+  // リンククリック時にメニューを閉じる
+  const navLinks = menu.querySelectorAll('a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      menu.classList.remove('active');
+    });
+  });
+</script>
+
+</body>
+</html>

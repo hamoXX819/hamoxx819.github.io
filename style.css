@@ -1,0 +1,265 @@
+/* CSS Variables */
+:root {
+  --bg: #f6f8fb;
+  --text: #1f2937;
+  --sub: #6b7280;
+  --main: #2563eb;
+  --card: #ffffff;
+  --border: #e5e7eb;
+}
+
+/* Reset & Base Styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+}
+
+/* Header & Navigation */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 22px;
+  color: var(--main);
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: var(--main);
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  gap: 6px;
+}
+
+.menu-toggle span {
+  width: 24px;
+  height: 3px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Sections */
+section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 80px 8%;
+}
+
+section h2 {
+  font-size: 32px;
+  margin-bottom: 24px;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+section h2::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 4px;
+  background: var(--main);
+  border-radius: 999px;
+  margin-top: 8px;
+}
+
+/* About Section */
+#about {
+  padding-top: 120px;
+}
+
+#about p {
+  font-size: 18px;
+  color: var(--sub);
+}
+
+/* Cards */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px;
+  margin-top: 20px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  transition: all 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.14);
+}
+
+.card h3 {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.card p {
+  color: var(--sub);
+  margin-bottom: 0;
+}
+
+/* Contact Section */
+#contact a {
+  color: var(--main);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+#contact a:hover {
+  color: var(--main);
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 32px;
+  color: var(--sub);
+  border-top: 1px solid var(--border);
+}
+
+/* Tablet Responsive (768px and below) */
+@media (max-width: 768px) {
+  header {
+    padding: 12px 6%;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
+
+  section {
+    padding: 60px 6%;
+  }
+
+  section h2 {
+    font-size: 28px;
+  }
+
+  .card {
+    padding: 24px;
+  }
+
+  .card h3 {
+    font-size: 22px;
+  }
+}
+
+/* Mobile Responsive (600px and below) */
+@media (max-width: 600px) {
+  header {
+    padding: 12px 5%;
+    flex-wrap: wrap;
+  }
+
+  header h1 {
+    font-size: 18px;
+    order: 1;
+  }
+
+  .menu-toggle {
+    display: flex;
+    order: 2;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    order: 3;
+    padding: 16px 0;
+    border-top: 1px solid var(--border);
+    margin-top: 12px;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  nav a {
+    font-size: 16px;
+    padding: 8px 0;
+  }
+
+  section {
+    padding: 56px 5%;
+  }
+
+  section h2 {
+    font-size: 24px;
+  }
+
+  #about p {
+    font-size: 16px;
+  }
+
+  .card {
+    padding: 20px;
+    margin-top: 16px;
+  }
+
+  .card h3 {
+    font-size: 20px;
+  }
+
+  .card p {
+    font-size: 14px;
+  }
+}
