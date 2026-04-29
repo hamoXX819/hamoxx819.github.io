@@ -39,6 +39,9 @@ themeToggle.addEventListener('click', () => {
 menuToggle.addEventListener('click', () => {
   menuToggle.classList.toggle('active');
   menu.classList.toggle('active');
+  const expanded = menuToggle.classList.contains('active');
+  menuToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+  menu.setAttribute('aria-hidden', expanded ? 'false' : 'true');
 });
 
 // リンククリック時にメニューを閉じる
@@ -47,6 +50,8 @@ navLinks.forEach(link => {
   link.addEventListener('click', () => {
     menuToggle.classList.remove('active');
     menu.classList.remove('active');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menu.setAttribute('aria-hidden', 'true');
   });
 });
 
