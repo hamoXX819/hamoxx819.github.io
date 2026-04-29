@@ -15,6 +15,7 @@ try {
 }
 
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const applyTheme = (theme) => {
   root.dataset.theme = theme;
@@ -60,12 +61,31 @@ const observerOptions = {
   rootMargin: '0px 0px -50px 0px'
 };
 
+// IntersectionObserver: reveal elements. For `.card` elements, apply alternating
+// `from-left` / `from-right` classes based on document order so they flow in alternately.
 const observer = new IntersectionObserver(function(entries) {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('in-view');
-      observer.unobserve(entry.target);
-    }
+    if (!entry.isIntersecting) return;
+
+    const el = entry.target;
+
+      if (el.classList.contains('card')) {
+        if (!prefersReducedMotion) {
+          // compute index among all cards to decide parity
+          const cards = Array.from(document.querySelectorAll('.card'));
+          const idx = cards.indexOf(el);
+          const cls = (idx % 2 === 0) ? 'from-left' : 'from-right';
+          el.classList.add(cls);
+          // small stagger for nicer effect (cap to keep snappy)
+          el.style.animationDelay = (Math.min(idx, 4) * 60) + 'ms';
+        } else {
+          // reduced motion: no lateral classes or stagger
+          el.style.animationDelay = '0ms';
+        }
+      }
+
+      el.classList.add('in-view');
+      observer.unobserve(el);
   });
 }, observerOptions);
 
