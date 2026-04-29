@@ -6,6 +6,17 @@
   --main: #2563eb;
   --card: #ffffff;
   --border: #e5e7eb;
+  --header-bg: rgba(255, 255, 255, 0.85);
+}
+
+html[data-theme="dark"] {
+  --bg: #0f172a;
+  --text: #e5e7eb;
+  --sub: #94a3b8;
+  --main: #60a5fa;
+  --card: #111827;
+  --border: #243244;
+  --header-bg: rgba(15, 23, 42, 0.88);
 }
 
 /* Keyframe Animations */
@@ -52,7 +63,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(255, 255, 255, 0.85);
+  background: var(--header-bg);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
   padding: 16px 8%;
@@ -65,6 +76,36 @@ header h1 {
   margin: 0;
   font-size: 22px;
   color: var(--main);
+}
+
+.theme-toggle {
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: 12px;
+  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+}
+
+.theme-toggle:focus-visible,
+.menu-toggle:focus-visible,
+nav a:focus-visible,
+.card-links a:focus-visible,
+#contact a:focus-visible {
+  outline: 2px solid var(--main);
+  outline-offset: 3px;
 }
 
 nav {
@@ -197,7 +238,7 @@ main {
 .hero-points span,
 .tag-list span {
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.75);
+  background: var(--card);
   border-radius: 999px;
   font-weight: 600;
 }
@@ -217,6 +258,10 @@ main {
   border-radius: 28px;
   border: 1px solid var(--border);
   box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+}
+
+html[data-theme="dark"] .hero-visual img {
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
 }
 
 /* Skills */
@@ -313,7 +358,7 @@ main {
 .tag-list span {
   padding: 8px 12px;
   color: var(--text);
-  background: #f9fafb;
+  background: color-mix(in srgb, var(--card) 92%, var(--bg));
   border-radius: 999px;
   font-size: 13px;
 }
@@ -335,6 +380,11 @@ main {
   text-decoration: underline;
 }
 
+html[data-theme="dark"] .hero-points span,
+html[data-theme="dark"] .tag-list span {
+  background: rgba(15, 23, 42, 0.45);
+}
+
 /* Contact Section */
 #contact a {
   color: var(--main);
@@ -354,6 +404,15 @@ footer {
   padding: 32px;
   color: var(--sub);
   border-top: 1px solid var(--border);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Tablet Responsive (768px and below) */

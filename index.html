@@ -22,12 +22,25 @@
   <meta name="twitter:title" content="ハモイ Portfolio">
   <meta name="twitter:description" content="Web開発・アプリ開発 ポートフォリオ">
 
+  <script>
+    (function () {
+      try {
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.theme = savedTheme || (prefersDark ? 'dark' : 'light');
+      } catch (error) {
+        document.documentElement.dataset.theme = 'light';
+      }
+    }());
+  </script>
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
   <h1>ハモイ Portfolio</h1>
+  <button class="theme-toggle" type="button" aria-label="ダークモードに切り替え" aria-pressed="false">◐</button>
   <button class="menu-toggle" aria-label="メニュー">
     <span></span>
     <span></span>
