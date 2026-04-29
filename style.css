@@ -78,6 +78,21 @@ header h1 {
   color: var(--main);
 }
 
+.header-about {
+  margin-left: 12px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid transparent;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.header-about:hover {
+  border-color: var(--border);
+}
+
 .theme-toggle {
   border: 1px solid var(--border);
   background: var(--card);
