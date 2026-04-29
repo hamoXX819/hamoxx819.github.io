@@ -3,7 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ポートフォリオ</title>
+
+  <!-- SEO -->
+  <title>ハモイ Portfolio | Web開発・アプリ開発</title>
+  <meta name="description" content="IT分野に転向し、Flutter・Supabase・PHPなどを使った開発を行っています。ポートフォリオサイト。">
+  <meta name="keywords" content="ポートフォリオ,Web開発,アプリ開発,Flutter,Supabase,PHP">
+  <meta name="author" content="裕吏">
+
+  <!-- OGP -->
+  <meta property="og:title" content="ハモイ Portfolio | Web開発・アプリ開発">
+  <meta property="og:description" content="IT分野に転向し、Flutter・Supabase・PHPなどを使った開発を行っています。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hamoi.com">
+  <meta property="og:site_name" content="ハモイ Portfolio">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ハモイ Portfolio">
+  <meta name="twitter:description" content="Web開発・アプリ開発 ポートフォリオ">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -55,25 +73,7 @@
   <p>© 2026 裕吏</p>
 </footer>
 
-<script>
-  // ハンバーガーメニューの toggle 機能
-  const menuToggle = document.querySelector('.menu-toggle');
-  const menu = document.getElementById('menu');
-
-  menuToggle.addEventListener('click', () => {
-    menuToggle.classList.toggle('active');
-    menu.classList.toggle('active');
-  });
-
-  // リンククリック時にメニューを閉じる
-  const navLinks = menu.querySelectorAll('a');
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      menuToggle.classList.remove('active');
-      menu.classList.remove('active');
-    });
-  });
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
