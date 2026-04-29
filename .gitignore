@@ -1,2 +1,72 @@
-# 特定ファイル
+# Ignore common system and editor files
+# macOS
+.DS_Store
+
+# Editor directories
+.vscode/
+/.idea/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Build / Dist
+dist/
+build/
+
+# Logs
+*.log
+
+# Temporary files
+*.swp
+*~
+
+# Images or large assets not intended for git (uncomment if needed)
+# images/tmp/
+
+# Keep AGENTS.md tracked (remove this line if you want it ignored)
 AGENTS.md
+
+# Local environment files (secrets)
+.env
+.env.*
+.env.local
+.env.production.local
+.env.development.local
+.env.test
+.envrc
+
+# Secrets, keys, certificates
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.csr
+*.der
+*.jks
+*.asc
+*.secret
+
+# Credentials files & configs
+.netrc
+.aws/credentials
+.aws/config
+.docker/config.json
+credentials
+
+# Common API key patterns
+*api_key*
+*API_KEY*
+*secret*
+
+# Ignore local IDE/session files (already covered but keep safe)
+.vscode/
+.idea/
