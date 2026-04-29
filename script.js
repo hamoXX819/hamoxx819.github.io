@@ -36,12 +36,7 @@ const observer = new IntersectionObserver(function(entries) {
   });
 }, observerOptions);
 
-// カード要素を監視
-document.querySelectorAll('.card').forEach(card => {
-  observer.observe(card);
-});
-
-// セクションのフェードインアニメーション
-document.querySelectorAll('section').forEach(section => {
-  observer.observe(section);
+// 表示アニメーションの対象をまとめて監視
+document.querySelectorAll('.card, .skill-card, .hero-visual, section').forEach(element => {
+  observer.observe(element);
 });

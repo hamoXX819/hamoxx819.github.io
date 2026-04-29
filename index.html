@@ -35,39 +35,98 @@
   </button>
   <nav id="menu">
     <a href="#about">自己紹介</a>
+    <a href="#skills">技術</a>
     <a href="#works">制作物</a>
     <a href="#contact">連絡</a>
   </nav>
 </header>
 
-<section id="about">
-  <h2>自己紹介</h2>
-  <p>IT分野に転向し、Flutter・Supabaseなどを使った開発を行っています。</p>
-</section>
+<main>
+  <section id="about" class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Portfolio / Web & App Development</p>
+      <h2>IT学習者として、実装と改善を積み重ねるポートフォリオです。</h2>
+      <p>IT分野に転向し、Flutter・Supabase・PHPなどを使った開発を行っています。見やすさと実用性を優先して、学びながら少しずつ育てています。</p>
+      <div class="hero-points">
+        <span>Webアプリ開発</span>
+        <span>モバイル開発</span>
+        <span>UI改善</span>
+      </div>
+    </div>
+    <figure class="hero-visual">
+      <img src="images/profile.svg" alt="プロフィールイメージ">
+    </figure>
+  </section>
 
-<section id="works">
-  <h2>制作物</h2>
+  <section id="skills">
+    <h2>技術スタック</h2>
+    <div class="skill-grid">
+      <article class="skill-card">
+        <h3>Frontend</h3>
+        <p>HTML / CSS / JavaScript</p>
+      </article>
+      <article class="skill-card">
+        <h3>Mobile</h3>
+        <p>Flutter / Dart</p>
+      </article>
+      <article class="skill-card">
+        <h3>Backend</h3>
+        <p>PHP / MySQL / Supabase</p>
+      </article>
+    </div>
+  </section>
 
-  <div class="card">
-    <h3>学校ポータルアプリ</h3>
-    <p>Flutter + Supabaseで開発した、学生向けポータルアプリです。</p>
-  </div>
+  <section id="works">
+    <h2>制作物</h2>
 
-  <div class="card">
-    <h3>出欠管理システム</h3>
-    <p>PHP + MySQLで開発した、授業の出欠を管理するWebシステムです。</p>
-  </div>
+    <div class="card">
+      <h3>学校ポータルアプリ</h3>
+      <p>Flutter + Supabaseで開発した、学生向けポータルアプリです。</p>
+      <div class="tag-list">
+        <span>Flutter</span>
+        <span>Supabase</span>
+        <span>学生向け</span>
+      </div>
+      <div class="card-links">
+        <a href="https://github.com/hamoXX819" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="#contact">相談する</a>
+      </div>
+    </div>
 
-  <div class="card">
-    <h3>防災アプリ</h3>
-    <p>災害情報・避難支援を目的とした地域向けアプリです。</p>
-  </div>
-</section>
+    <div class="card">
+      <h3>出欠管理システム</h3>
+      <p>PHP + MySQLで開発した、授業の出欠を管理するWebシステムです。</p>
+      <div class="tag-list">
+        <span>PHP</span>
+        <span>MySQL</span>
+        <span>管理画面</span>
+      </div>
+      <div class="card-links">
+        <a href="https://github.com/hamoXX819" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="#contact">相談する</a>
+      </div>
+    </div>
 
-<section id="contact">
-  <h2>連絡先</h2>
-  <p><a href="https://github.com/hamoXX819" target="_blank" rel="noopener noreferrer">GitHub: https://github.com/hamoXX819</a></p>
-</section>
+    <div class="card">
+      <h3>防災アプリ</h3>
+      <p>災害情報・避難支援を目的とした地域向けアプリです。</p>
+      <div class="tag-list">
+        <span>UI改善</span>
+        <span>地域向け</span>
+        <span>情報表示</span>
+      </div>
+      <div class="card-links">
+        <a href="https://github.com/hamoXX819" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="#contact">相談する</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>連絡先</h2>
+    <p><a href="https://github.com/hamoXX819" target="_blank" rel="noopener noreferrer">GitHub: https://github.com/hamoXX819</a></p>
+  </section>
+</main>
 
 <footer>
   <p>© 2026 裕吏</p>
