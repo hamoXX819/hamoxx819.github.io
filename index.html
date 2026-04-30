@@ -52,6 +52,8 @@
     .header-actions{display:flex;gap:8px;margin-left:auto}
     nav{justify-self:center}
     .menu-toggle{display:none}
+    .intro-splash{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:linear-gradient(135deg,#f7fbff 0%,#fff7d8 48%,#e8f6ff 100%)}
+    .intro-splash__title{font-size:clamp(34px,7vw,72px);font-weight:900;line-height:1.1;letter-spacing:0;color:#172033}
     .hero{display:grid;grid-template-columns:1fr minmax(240px,0.8fr);gap:32px;align-items:center;padding:64px 8%}
     .hero h2{font-size:clamp(36px,6vw,64px);font-weight:900;line-height:1.25;margin:0 0 12px}
     .hero-visual img{width:100%;height:auto;border-radius:16px}
@@ -61,6 +63,12 @@
   </style>
 </head>
 <body>
+
+<div class="intro-splash" id="intro-splash" aria-hidden="true">
+  <div class="intro-splash__inner">
+    <p class="intro-splash__title">Now Loading...</p>
+  </div>
+</div>
 
 <header>
   <h1><a href="index.html">hamoXX819</a></h1>
@@ -93,7 +101,7 @@
   <section class="hero" data-scene="intro">
     <div class="hero-copy">
       <p class="eyebrow">Web &amp; App Development</p>
-      <h2>課題解決第一</h2>
+      <h2>Hello, World!</h2>
       <p>
         様々な技術(武器)を駆使して<br>
         ユーザー(村人)の課題(クエスト)を<br>

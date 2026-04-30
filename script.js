@@ -5,6 +5,7 @@ const menu = document.getElementById('menu');
 const progressBar = document.getElementById('scroll-progress-bar');
 const sceneIndicator = document.getElementById('scene-indicator');
 const header = document.querySelector('header');
+const introSplash = document.getElementById('intro-splash');
 
 const root = document.documentElement;
 let savedTheme = null;
@@ -17,6 +18,19 @@ try {
 
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (introSplash) {
+  if (prefersReducedMotion) {
+    introSplash.remove();
+  } else {
+    document.body.classList.add('no-scroll');
+    window.setTimeout(() => {
+      introSplash.classList.add('is-hidden');
+      document.body.classList.remove('no-scroll');
+      introSplash.remove();
+    }, 2350);
+  }
+}
 
 const updateHeaderOffset = () => {
   if (!header) {
