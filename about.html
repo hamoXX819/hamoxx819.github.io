@@ -4,17 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ハモイ — 詳細自己紹介</title>
+  <script>
+    (function () {
+      try {
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.theme = savedTheme || (prefersDark ? 'dark' : 'light');
+      } catch (error) {
+        document.documentElement.dataset.theme = 'light';
+      }
+    }());
+  </script>
   <link rel="stylesheet" href="style.css">
+  <link rel="preload" href="script.js" as="script">
 </head>
 <body>
 <header>
-  <h1>ハモイ Portfolio</h1>
-  <nav>
-    <a href="index.html">ホーム</a>
-    <a href="index.html#skills">技術</a>
-    <a href="index.html#works">制作物</a>
-    <a href="index.html#contact">連絡</a>
+  <h1><a href="index.html">Hamoi.com</a></h1>
+
+  <nav id="menu" role="navigation" aria-label="メインナビゲーション" aria-hidden="true">
+    <a href="index.html">Home</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="index.html#works">Works</a>
+    <a href="index.html#contact">Contact</a>
   </nav>
+
+  <div class="header-actions">
+    <button class="theme-toggle" type="button" aria-label="ダークモードに切り替え" aria-pressed="false">◐</button>
+    <button class="menu-toggle" aria-label="メニュー" aria-controls="menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
 </header>
 
 <main>
@@ -57,5 +79,6 @@
   <p>© 2026 Hamoi, all rights reserved.</p>
 </footer>
 
+<script src="script.js" defer></script>
 </body>
 </html>

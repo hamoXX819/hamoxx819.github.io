@@ -23,7 +23,8 @@ python3 -m http.server 8000
   - `index.html` — ページ本体
   - `style.css` — スタイル
   - `script.js` — UI 振る舞い（メニュー・テーマ・アニメーション）
-  - `images/profile.svg` — プロフィール画像（SVG）
+  - `images/yusha_hamoi.svg` — プロフィール画像（SVG）
+  - `images/yusha_hamoi.png` — OGP画像
 
 ## 注意点
 - 機密情報（`.env` 等）は `.gitignore` に追加済みです。既にコミット済みの機密情報がある場合は、履歴からの除去（BFG や `git filter-repo`）を検討してください。

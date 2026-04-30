@@ -224,6 +224,11 @@ header h1 {
   transition: color 0.45s ease;
 }
 
+header h1 a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .scroll-progress {
   position: fixed;
   top: 0;
@@ -311,6 +316,7 @@ body.scene-contact .scene-indicator {
 .menu-toggle:focus-visible,
 nav a:focus-visible,
 .card-links a:focus-visible,
+.card-detail:focus-visible,
 #contact a:focus-visible {
   outline: 2px solid var(--scene-main);
   outline-offset: 3px;
@@ -629,7 +635,19 @@ html[data-theme="dark"] .hero-visual img {
   font-weight: 700;
 }
 
-.card-links a:hover {
+.card-detail {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--scene-main);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  padding: 0;
+}
+
+.card-links a:hover,
+.card-detail:hover {
   text-decoration: underline;
 }
 
@@ -797,6 +815,11 @@ footer {
     gap: 28px;
   }
 
+  .hero-visual {
+    max-width: 360px;
+    margin-inline: auto;
+  }
+
   .skill-grid {
     grid-template-columns: 1fr;
   }
@@ -867,6 +890,10 @@ footer {
 
   .hero p {
     font-size: 16px;
+  }
+
+  .hero-visual {
+    max-width: min(320px, 88vw);
   }
 
   .card {

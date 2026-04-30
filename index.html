@@ -16,11 +16,14 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://hamoi.com">
   <meta property="og:site_name" content="ハモイ Portfolio">
+  <meta property="og:image" content="https://hamoi.com/images/yusha_hamoi.png">
+  <meta property="og:image:alt" content="勇者ハモイ プロフィールイメージ">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="ハモイ Portfolio">
   <meta name="twitter:description" content="Web開発・アプリ開発 ポートフォリオ">
+  <meta name="twitter:image" content="https://hamoi.com/images/yusha_hamoi.png">
 
   <script>
     (function () {
@@ -46,13 +49,14 @@
     body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#1f2937;background:linear-gradient(180deg,#f3fbff 0%,#eaf7ff 52%,#e6f4ff 100%)}
     header{position:sticky;top:0;z-index:10;background:rgba(234,247,255,0.88);backdrop-filter:blur(8px);border-bottom:1px solid #cfe6f5;padding:12px 6%;display:flex;align-items:center}
     header h1{margin:0;font-size:20px;color:#2563eb}
+    header h1 a{color:inherit;text-decoration:none}
     .header-actions{display:flex;gap:8px;margin-left:auto}
     .menu-toggle{display:none}
     .hero{display:grid;grid-template-columns:1fr minmax(240px,0.8fr);gap:32px;align-items:center;padding:64px 8%}
     .hero h2{font-size:32px;margin:0 0 12px}
     .hero-visual img{width:100%;height:auto;border-radius:20px}
     .scroll-progress{position:fixed;top:0;left:0;width:100%;height:4px}
-    @media(max-width:768px){.hero{grid-template-columns:1fr;gap:20px;padding:40px 6%}.menu-toggle{display:flex}}
+    @media(max-width:768px){.hero{grid-template-columns:1fr;gap:20px;padding:40px 6%}.hero-visual{max-width:360px;margin-inline:auto}.menu-toggle{display:flex}}
   </style>
 </head>
 <body>
@@ -86,7 +90,7 @@
 <main>
   <section class="hero" data-scene="intro">
     <div class="hero-copy">
-      <p class="eyebrow">Web & App Development</p>
+      <p class="eyebrow">Web &amp; App Development</p>
       <h2>課題解決第一</h2>
       <p>様々な技術を駆使して、ユーザーの課題を解決することを最優先に考えています。</p>
       <div class="hero-points">

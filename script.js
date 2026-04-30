@@ -27,8 +27,22 @@ const updateHeaderOffset = () => {
   root.style.setProperty('--header-offset', `${offset}px`);
 };
 
+const syncMenuVisibility = () => {
+  if (!menu || !menuToggle) {
+    return;
+  }
+
+  const isMobile = window.matchMedia('(max-width: 600px)').matches;
+  const isExpanded = menuToggle.classList.contains('active');
+  menu.setAttribute('aria-hidden', isMobile && !isExpanded ? 'true' : 'false');
+};
+
 const applyTheme = (theme) => {
   root.dataset.theme = theme;
+  if (!themeToggle) {
+    return;
+  }
+
   themeToggle.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
   themeToggle.setAttribute('aria-label', theme === 'dark' ? 'ライトモードに切り替え' : 'ダークモードに切り替え');
   themeToggle.textContent = theme === 'dark' ? '☀' : '◐';
@@ -37,40 +51,46 @@ const applyTheme = (theme) => {
 applyTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
 updateHeaderOffset();
 
-themeToggle.addEventListener('click', () => {
-  const nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
-  applyTheme(nextTheme);
-  try {
-    localStorage.setItem('theme', nextTheme);
-  } catch (error) {
-    // 保存できない環境ではそのまま反映だけ行う
-  }
-});
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    applyTheme(nextTheme);
+    try {
+      localStorage.setItem('theme', nextTheme);
+    } catch (error) {
+      // 保存できない環境ではそのまま反映だけ行う
+    }
+  });
+}
 
-menuToggle.addEventListener('click', () => {
-  menuToggle.classList.toggle('active');
-  menu.classList.toggle('active');
-  const expanded = menuToggle.classList.contains('active');
-  menuToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-  menu.setAttribute('aria-hidden', expanded ? 'false' : 'true');
-  if (expanded) {
-    // focus first link for keyboard users
-    const firstLink = menu.querySelector('a');
-    if (firstLink) firstLink.focus();
-  } else {
-    // return focus to toggle
-    menuToggle.focus();
-  }
-});
+if (menuToggle && menu) {
+  menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    menu.classList.toggle('active');
+    const expanded = menuToggle.classList.contains('active');
+    menuToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    syncMenuVisibility();
+    if (expanded) {
+      const firstLink = menu.querySelector('a');
+      if (firstLink) firstLink.focus();
+    } else {
+      menuToggle.focus();
+    }
+  });
+}
 
 // リンククリック時にメニューを閉じる
-const navLinks = menu.querySelectorAll('a');
+const navLinks = menu ? menu.querySelectorAll('a') : [];
 navLinks.forEach(link => {
   link.addEventListener('click', () => {
+    if (!menuToggle || !menu) {
+      return;
+    }
+
     menuToggle.classList.remove('active');
     menu.classList.remove('active');
     menuToggle.setAttribute('aria-expanded', 'false');
-    menu.setAttribute('aria-hidden', 'true');
+    syncMenuVisibility();
   });
 });
 
@@ -84,11 +104,11 @@ document.addEventListener('keydown', (e) => {
       return;
     }
 
-    if (menu.classList.contains('active')) {
+    if (menu && menuToggle && menu.classList.contains('active')) {
       menuToggle.classList.remove('active');
       menu.classList.remove('active');
       menuToggle.setAttribute('aria-expanded', 'false');
-      menu.setAttribute('aria-hidden', 'true');
+      syncMenuVisibility();
       menuToggle.focus();
     }
   }
@@ -101,6 +121,8 @@ window.addEventListener('load', () => {
 });
 
 window.addEventListener('resize', updateHeaderOffset, { passive: true });
+window.addEventListener('resize', syncMenuVisibility, { passive: true });
+syncMenuVisibility();
 
 if (window.ResizeObserver && header) {
   const headerObserver = new ResizeObserver(() => {
@@ -164,6 +186,10 @@ const sceneLabelMap = {
 };
 
 const updateActiveNav = (sceneName) => {
+  if (!menu) {
+    return;
+  }
+
   const menuLinks = menu.querySelectorAll('a[href^="#"]');
   menuLinks.forEach((link) => {
     link.classList.remove('is-active');
