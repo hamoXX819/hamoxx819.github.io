@@ -167,9 +167,9 @@ const iconSvg = {
 
 const cardData = {
   principles: [
-    { className: 'skill-card-usability', icon: 'usability', title: '使いやすさ', text: '操作に迷わず、必要な情報へ自然にたどり着けるUIを意識します。' },
+    { className: 'skill-card-usability', icon: 'usability', title: '使いやすさ', text: '操作に迷わず、必要な情報へ自然にたどり着けるUI/UXを意識します。' },
     { className: 'skill-card-practical', icon: 'practical', title: '実用性', text: '見た目だけでなく、実際の運用や管理のしやすさまで考えます。' },
-    { className: 'skill-card-maintainable', icon: 'maintainable', title: '保守性', text: '後から読み返しやすく、改善しやすいHTML / CSS / JavaScriptを目指します。' }
+    { className: 'skill-card-maintainable', icon: 'maintainable', title: '保守性', text: '後から読み返しやすく、改善しやすいソースコードを目指します。' }
   ],
   certifications: [
     { className: 'skill-card-cert-basic', icon: 'certBasic', title: '基本情報技術者', text: 'ITの基礎、アルゴリズム、システム開発、ネットワークなどの知識を学んでいます。' },
