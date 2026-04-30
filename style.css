@@ -898,7 +898,8 @@ html[data-theme="dark"] .hero-visual img {
   margin-top: 18px;
 }
 
-.card-links a {
+.card-links a,
+.card-detail {
   color: var(--scene-main);
   text-decoration: none;
   font-weight: 900;
@@ -910,11 +911,8 @@ html[data-theme="dark"] .hero-visual img {
   appearance: none;
   border: 0;
   background: transparent;
-  color: var(--scene-main);
   cursor: pointer;
   font: inherit;
-  font-weight: 900;
-  padding: 0;
 }
 
 .card-links a:hover,
@@ -1411,7 +1409,7 @@ footer {
   }
 
   .card {
-    padding: 20px;
+    padding: 18px;
     margin-top: 16px;
   }
 
@@ -1427,10 +1425,16 @@ footer {
 
   .card h3 {
     font-size: 20px;
+    line-height: 1.35;
   }
 
   .card p {
     font-size: 14px;
+  }
+
+  .work-summary {
+    gap: 8px;
+    margin-top: 14px;
   }
 
   .work-summary div {
@@ -1458,6 +1462,36 @@ footer {
   .tag-list span {
     padding: 7px 10px;
     font-size: 12px;
+  }
+
+  .card-links {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .card-links a,
+  .card-detail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 9px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--card) 86%, var(--bg));
+    line-height: 1.35;
+  }
+
+  .card-links a:first-child {
+    color: white;
+    border-color: transparent;
+    background: linear-gradient(135deg, var(--scene-main), var(--accent-2));
+  }
+
+  .card:hover {
+    transform: none;
   }
 
   .scene-indicator {
