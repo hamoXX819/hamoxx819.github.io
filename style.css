@@ -966,6 +966,57 @@ html[data-theme="dark"] .hero-visual img {
   min-height: 52px;
 }
 
+.link-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.link-item {
+  display: grid;
+  gap: 6px;
+  min-height: 132px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.08);
+}
+
+.link-item__label {
+  width: fit-content;
+  padding: 4px 8px;
+  border-radius: 999px;
+  color: var(--scene-main);
+  background: color-mix(in srgb, var(--scene-main) 10%, transparent);
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1.4;
+}
+
+.link-item strong {
+  color: var(--text);
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+.link-item a,
+.link-item > span:last-child {
+  align-self: end;
+  color: var(--scene-main);
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.link-item a:hover {
+  text-decoration: underline;
+}
+
+.link-item.is-muted {
+  opacity: 0.72;
+}
+
 html[data-theme="dark"] .hero-points span,
 html[data-theme="dark"] .tag-list span {
   background: rgba(15, 23, 42, 0.45);
@@ -1228,6 +1279,10 @@ footer {
   }
 
   .link-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .link-list {
     grid-template-columns: 1fr;
   }
 
