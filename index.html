@@ -123,8 +123,9 @@
         <span>学生向け</span>
       </div>
       <div class="card-links">
-        <a href="https://github.com/hamoXX819" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="#contact">相談する</a>
+          <a href="https://github.com/hamoXX819" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <button class="card-detail" type="button" aria-haspopup="dialog">詳細</button>
+          <a href="#contact">相談する</a>
       </div>
     </div>
 
@@ -138,6 +139,7 @@
       </div>
       <div class="card-links">
         <a href="https://github.com/hamoXX819" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <button class="card-detail" type="button" aria-haspopup="dialog">詳細</button>
         <a href="#contact">相談する</a>
       </div>
     </div>
@@ -152,6 +154,7 @@
       </div>
       <div class="card-links">
         <a href="https://github.com/hamoXX819" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <button class="card-detail" type="button" aria-haspopup="dialog">詳細</button>
         <a href="#contact">相談する</a>
       </div>
     </div>
@@ -171,6 +174,20 @@
 </footer>
 
 <script src="script.js"></script>
+
+<!-- Modal for card details -->
+<div id="card-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal-overlay" data-close="true"></div>
+  <div class="modal-dialog" role="document">
+    <header class="modal-header">
+      <h3 id="modal-title">Title</h3>
+      <button class="modal-close" aria-label="閉じる">✕</button>
+    </header>
+    <div id="modal-body" class="modal-body">
+      <p>詳細内容</p>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

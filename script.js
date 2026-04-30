@@ -77,6 +77,13 @@ navLinks.forEach(link => {
 // Close menu with Escape and ensure focus management
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' || e.key === 'Esc') {
+    // if modal is open, close it first
+    const modal = document.getElementById('card-modal');
+    if (modal && modal.getAttribute('aria-hidden') === 'false') {
+      closeModal();
+      return;
+    }
+
     if (menu.classList.contains('active')) {
       menuToggle.classList.remove('active');
       menu.classList.remove('active');
@@ -221,3 +228,79 @@ const updateScrollProgress = () => {
 
 window.addEventListener('scroll', updateScrollProgress, { passive: true });
 updateScrollProgress();
+
+/* Modal: card details */
+const modal = document.getElementById('card-modal');
+const modalTitle = modal ? modal.querySelector('#modal-title') : null;
+const modalBody = modal ? modal.querySelector('#modal-body') : null;
+const modalClose = modal ? modal.querySelector('.modal-close') : null;
+let lastFocusedElement = null;
+
+const focusableSelectors = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+
+function trapFocus(e) {
+  if (!modal || modal.getAttribute('aria-hidden') === 'true') return;
+  const focusable = Array.from(modal.querySelectorAll(focusableSelectors));
+  if (focusable.length === 0) return;
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+
+  if (e.key === 'Tab') {
+    if (e.shiftKey) {
+      if (document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      }
+    } else {
+      if (document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  }
+}
+
+function openModalFromCard(cardEl) {
+  if (!modal) return;
+  const titleEl = cardEl.querySelector('h3');
+  const pEl = cardEl.querySelector('p');
+  const tags = Array.from(cardEl.querySelectorAll('.tag-list span')).map(s => s.textContent.trim()).filter(Boolean);
+
+  modalTitle.textContent = titleEl ? titleEl.textContent.trim() : '詳細';
+  // build body content
+  let html = '';
+  if (pEl) html += `<p>${pEl.textContent.trim()}</p>`;
+  if (tags.length) html += '<p class="modal-tags"><strong>タグ: </strong>' + tags.join(' ・ ') + '</p>';
+  modalBody.innerHTML = html;
+
+  lastFocusedElement = document.activeElement;
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('no-scroll');
+  // focus close button
+  if (modalClose) modalClose.focus();
+  document.addEventListener('keydown', trapFocus);
+}
+
+function closeModal() {
+  if (!modal) return;
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('no-scroll');
+  document.removeEventListener('keydown', trapFocus);
+  if (lastFocusedElement) lastFocusedElement.focus();
+}
+
+// attach handlers
+if (modalClose) modalClose.addEventListener('click', closeModal);
+if (modal) {
+  modal.querySelectorAll('[data-close="true"]').forEach(el => {
+    el.addEventListener('click', closeModal);
+  });
+}
+
+// card detail buttons
+document.querySelectorAll('.card .card-detail').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    const card = e.currentTarget.closest('.card');
+    if (card) openModalFromCard(card);
+  });
+});
