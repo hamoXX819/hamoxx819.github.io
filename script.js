@@ -28,7 +28,7 @@ if (introSplash) {
       introSplash.classList.add('is-hidden');
       document.body.classList.remove('no-scroll');
       introSplash.remove();
-    }, 2350);
+    }, 1650);
   }
 }
 
@@ -312,8 +312,7 @@ const observerOptions = {
   rootMargin: '0px 0px -50px 0px'
 };
 
-// IntersectionObserver: reveal elements. For `.card` elements, apply alternating
-// `from-left` / `from-right` classes based on document order so they flow in alternately.
+// IntersectionObserver: reveal elements with a small stagger.
 const observer = new IntersectionObserver(function(entries) {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
@@ -322,15 +321,10 @@ const observer = new IntersectionObserver(function(entries) {
 
       if (el.classList.contains('card')) {
         if (!prefersReducedMotion) {
-          // compute index among all cards to decide parity
           const cards = Array.from(document.querySelectorAll('.card'));
           const idx = cards.indexOf(el);
-          const cls = (idx % 2 === 0) ? 'from-left' : 'from-right';
-          el.classList.add(cls);
-          // small stagger for nicer effect (cap to keep snappy)
-          el.style.animationDelay = (Math.min(idx, 4) * 60) + 'ms';
+          el.style.animationDelay = (Math.min(idx, 3) * 45) + 'ms';
         } else {
-          // reduced motion: no lateral classes or stagger
           el.style.animationDelay = '0ms';
         }
       }
