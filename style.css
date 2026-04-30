@@ -568,11 +568,18 @@ main {
   margin-bottom: 0;
 }
 
-.hero-points {
+.hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 24px;
+}
+
+.hero-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
 }
 
 .hero-points span,
@@ -1239,6 +1246,15 @@ footer {
 
   .hero p {
     font-size: 16px;
+  }
+
+  .hero-actions {
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
   }
 
   .hero-points {
