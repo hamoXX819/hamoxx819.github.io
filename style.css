@@ -163,6 +163,7 @@ body {
   line-height: 1.8;
   animation: fadeIn 0.6s ease-in-out;
   transition: color 0.45s ease;
+  overflow-x: clip;
 }
 
 section[id] {
@@ -1151,16 +1152,33 @@ footer {
     padding: 12px 5%;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
   }
 
   header h1 {
+    flex: 1 1 auto;
+    min-width: 0;
     font-size: 18px;
     order: 1;
+  }
+
+  header h1 a {
+    display: inline-block;
+    max-width: 100%;
+    overflow-wrap: anywhere;
   }
 
   .menu-toggle {
     display: flex;
     order: 2;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--card);
   }
 
   .header-actions {
@@ -1170,15 +1188,21 @@ footer {
     justify-content: flex-end;
   }
 
+  .theme-toggle {
+    width: 42px;
+    height: 42px;
+    margin: 0;
+  }
+
   nav {
     display: none;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
     width: 100%;
     order: 3;
-    padding: 16px 0;
+    padding: 12px 0 4px;
     border-top: 1px solid var(--border);
-    margin-top: 12px;
+    margin-top: 2px;
   }
 
   nav.active {
@@ -1186,8 +1210,10 @@ footer {
   }
 
   nav a {
+    width: 100%;
     font-size: 16px;
-    padding: 8px 0;
+    padding: 10px 12px;
+    border-radius: 8px;
   }
 
   section {
@@ -1202,8 +1228,28 @@ footer {
     font-size: 16px;
   }
 
+  .hero {
+    min-height: auto;
+    padding-top: 48px;
+  }
+
+  .hero h2 {
+    font-size: 34px;
+  }
+
   .hero p {
     font-size: 16px;
+  }
+
+  .hero-points {
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .hero-points span {
+    padding: 8px 10px;
+    font-size: 13px;
+    line-height: 1.35;
   }
 
   .hero-visual {
@@ -1220,6 +1266,11 @@ footer {
     align-items: stretch;
   }
 
+  .contact-actions .btn,
+  .link-actions .btn {
+    width: 100%;
+  }
+
   .card h3 {
     font-size: 20px;
   }
@@ -1232,11 +1283,17 @@ footer {
     font-size: 15px;
   }
 
+  .tag-list {
+    gap: 8px;
+  }
+
+  .tag-list span {
+    padding: 7px 10px;
+    font-size: 12px;
+  }
+
   .scene-indicator {
-    right: 12px;
-    bottom: 12px;
-    font-size: 10px;
-    letter-spacing: 0;
+    display: none;
   }
 
   /* On small screens, avoid horizontal slide to improve readability
