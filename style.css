@@ -1118,4 +1118,13 @@ footer {
     animation: slideUpFade 0.52s ease-out forwards !important;
     animation-delay: 0ms !important;
   }
+
+  .skill-card,
+  .card,
+  .hero-visual,
+  section,
+  section h2 {
+  opacity: 1;
+  transform: none;
+}
 }
