@@ -668,6 +668,18 @@ html[data-theme="dark"] .hero-visual img {
   background: color-mix(in srgb, var(--accent) 14%, var(--card));
 }
 
+.skill-card-practical .skill-icon,
+.skill-card-cert-security .skill-icon {
+  color: var(--accent-2);
+  background: color-mix(in srgb, var(--accent-2) 14%, var(--card));
+}
+
+.skill-card-maintainable .skill-icon,
+.skill-card-cert-electric .skill-icon {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, var(--card));
+}
+
 .skill-card p {
   margin: 0;
   color: var(--sub);

@@ -131,6 +131,112 @@ if (window.ResizeObserver && header) {
   headerObserver.observe(header);
 }
 
+const iconSvg = {
+  frontend: '<svg viewBox="0 0 24 24"><path d="m9 18-6-6 6-6"/><path d="m15 6 6 6-6 6"/></svg>',
+  mobile: '<svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>',
+  backend: '<svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="7" ry="3"/><path d="M5 5v7c0 1.7 3.1 3 7 3s7-1.3 7-3V5"/><path d="M5 12v7c0 1.7 3.1 3 7 3s7-1.3 7-3v-7"/></svg>',
+  infra: '<svg viewBox="0 0 24 24"><path d="M17.5 18H8a5 5 0 1 1 1.2-9.8A6 6 0 0 1 20 12.5 3 3 0 0 1 17.5 18Z"/></svg>',
+  language: '<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m7 10 3 2-3 2"/><path d="M12 15h5"/></svg>',
+  engineering: '<svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5 5L4 17v3h3l5.7-5.7a4 4 0 0 0 5-5l-2.4 2.4-3-3 2.4-2.4Z"/></svg>',
+  usability: '<svg viewBox="0 0 24 24"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>',
+  practical: '<svg viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/><path d="M4 19h16"/></svg>',
+  maintainable: '<svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 1-15.5 6.2"/><path d="M3 12A9 9 0 0 1 18.5 5.8"/><path d="M3 18h5v-5"/><path d="M21 6h-5v5"/></svg>',
+  certBasic: '<svg viewBox="0 0 24 24"><path d="M7 3h10a2 2 0 0 1 2 2v16l-7-3-7 3V5a2 2 0 0 1 2-2Z"/><path d="M9 8h6"/><path d="M9 12h4"/></svg>',
+  certSecurity: '<svg viewBox="0 0 24 24"><path d="M12 3 19 6v5c0 4.5-2.8 8.5-7 10-4.2-1.5-7-5.5-7-10V6l7-3Z"/><path d="m9.5 12 1.8 1.8L15 10"/></svg>',
+  certElectric: '<svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 10-13h-7l0-7Z"/></svg>'
+};
+
+const cardData = {
+  principles: [
+    { className: 'skill-card-usability', icon: 'usability', title: '使いやすさ', text: '操作に迷わず、必要な情報へ自然にたどり着けるUIを意識します。' },
+    { className: 'skill-card-practical', icon: 'practical', title: '実用性', text: '見た目だけでなく、実際の運用や管理のしやすさまで考えます。' },
+    { className: 'skill-card-maintainable', icon: 'maintainable', title: '保守性', text: '後から読み返しやすく、改善しやすいHTML / CSS / JavaScriptを目指します。' }
+  ],
+  certifications: [
+    { className: 'skill-card-cert-basic', icon: 'certBasic', title: '基本情報技術者', text: 'ITの基礎、アルゴリズム、システム開発、ネットワークなどの知識を学んでいます。' },
+    { className: 'skill-card-cert-security', icon: 'certSecurity', title: '情報セキュリティマネジメント', text: '情報セキュリティの考え方、リスク管理、運用面の対策を意識しています。' },
+    { className: 'skill-card-cert-electric', icon: 'certElectric', title: '第二種電気工事士', text: '電気設備や安全に関する基礎知識を、ものづくりの視点にも活かしています。' }
+  ],
+  skills: [
+    { className: 'skill-card-frontend', icon: 'frontend', title: 'フロントエンド', text: 'HTML / CSS / JavaScript' },
+    { className: 'skill-card-mobile', icon: 'mobile', title: 'モバイル', text: 'Flutter / Dart' },
+    { className: 'skill-card-backend', icon: 'backend', title: 'バックエンド', text: 'PHP / MySQL / Supabase' },
+    { className: 'skill-card-infra', icon: 'infra', title: 'インフラストラクチャ', text: 'Linux / Docker / AWS / Azure' },
+    { className: 'skill-card-language', icon: 'language', title: '言語', text: 'C / C# / SQL / Python / JavaScript / VBA' },
+    { className: 'skill-card-engineering', icon: 'engineering', title: '機械工学', text: 'CAD / 電気制御 / PLC / 画像処理' }
+  ],
+  works: [
+    {
+      title: '学校ポータルアプリ',
+      text: 'Flutter + Supabaseで開発した、学生向けポータルアプリです。',
+      aboutText: '学生が必要な情報を確認しやすくすることを目的にした、モバイル向けの制作物です。',
+      tags: ['iOS/Android', 'Flutter', 'Supabase/Postgres', '学生向け']
+    },
+    {
+      title: '出欠管理システム',
+      text: 'XAMPPで開発した、授業の出欠を管理するWebシステムです。',
+      aboutText: '授業の出欠を管理しやすくすることを目的にした、Webベースの制作物です。',
+      tags: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL']
+    },
+    {
+      title: '防災アプリ',
+      text: '災害情報・避難支援を目的とした地域向けアプリです。',
+      aboutText: '災害情報や避難支援を分かりやすく届けることを目的にした、地域向けの制作物です。',
+      tags: ['iOS/Android', 'Flutter', 'Supabase/Postgres', '地域向け']
+    }
+  ]
+};
+
+const renderSkillCards = (container, cards) => {
+  container.innerHTML = cards.map((card) => `
+    <article class="skill-card ${card.className}">
+      <h3><span class="skill-icon" aria-hidden="true">${iconSvg[card.icon]}</span>${card.title}</h3>
+      <p>${card.text}</p>
+    </article>
+  `).join('');
+};
+
+const renderWorkCards = (container, cards) => {
+  const includeActions = container.dataset.cardActions === 'true';
+
+  container.innerHTML = cards.map((card) => {
+    const text = includeActions ? card.text : card.aboutText;
+    const tags = card.tags.map((tag) => `<span>${tag}</span>`).join('');
+    const actions = includeActions ? `
+      <div class="card-links">
+        <a href="#links">関連リンク</a>
+        <button class="card-detail" type="button" aria-haspopup="dialog">詳細</button>
+        <a href="#contact">相談する</a>
+      </div>
+    ` : '';
+
+    return `
+      <div class="card">
+        <h3>${card.title}</h3>
+        <p>${text}</p>
+        <div class="tag-list">${tags}</div>
+        ${actions}
+      </div>
+    `;
+  }).join('');
+};
+
+document.querySelectorAll('[data-card-list]').forEach((container) => {
+  const listName = container.dataset.cardList;
+  const cards = cardData[listName];
+
+  if (!cards) {
+    return;
+  }
+
+  if (listName === 'works') {
+    renderWorkCards(container, cards);
+    return;
+  }
+
+  renderSkillCards(container, cards);
+});
+
 // スクロール時のカード出現アニメーション
 const observerOptions = {
   threshold: 0.1,

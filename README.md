@@ -24,6 +24,7 @@ python3 -m http.server 8000
   - `style.css` — スタイル
   - `script.js` — UI 振る舞い（メニュー・テーマ・アニメーション）
   - `images/profile.svg` — プロフィール画像（SVG）
+- 技術スタック・資格・制作物などのカード内容は `script.js` の `cardData` で管理しています。
 
 ## 注意点
 - 機密情報（`.env` 等）は `.gitignore` に追加済みです。既にコミット済みの機密情報がある場合は、履歴からの除去（BFG や `git filter-repo`）を検討してください。
