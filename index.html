@@ -37,7 +37,7 @@
     }());
   </script>
 
-  <meta name="theme-color" content="#eaf7ff">
+  <meta name="theme-color" content="#f7fbff">
   <link rel="preload" href="style.css" as="style" onload="this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="style.css"></noscript>
   <link rel="preload" href="script.js" as="script">
@@ -46,15 +46,16 @@
   <style>
     /* Critical above-the-fold styles */
     html{scroll-behavior:smooth}
-    body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#1f2937;background:linear-gradient(180deg,#f3fbff 0%,#eaf7ff 52%,#e6f4ff 100%)}
-    header{position:sticky;top:0;z-index:10;background:rgba(234,247,255,0.88);backdrop-filter:blur(8px);border-bottom:1px solid #cfe6f5;padding:12px 6%;display:flex;align-items:center}
-    header h1{margin:0;font-size:20px;color:#2563eb}
+    body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#172033;background:linear-gradient(135deg,rgba(255,255,255,.94) 0 22%,rgba(255,241,194,.65) 22% 34%,transparent 34%),linear-gradient(180deg,#f7fbff 0%,#e8f6ff 48%,#f8fbff 100%)}
+    html[data-theme="dark"] body{color:#edf5ff;background:linear-gradient(135deg,rgba(96,165,250,.12) 0 22%,rgba(251,146,60,.12) 22% 34%,transparent 34%),linear-gradient(180deg,#111827 0%,#172033 48%,#0f172a 100%)}
+    header{position:sticky;top:0;z-index:10;background:rgba(247,251,255,.82);backdrop-filter:blur(16px);border-bottom:1px solid rgba(30,64,175,.14);padding:12px 6%;display:flex;align-items:center}
+    header h1{margin:0;font-size:20px;color:#172033}
     header h1 a{color:inherit;text-decoration:none}
     .header-actions{display:flex;gap:8px;margin-left:auto}
     .menu-toggle{display:none}
     .hero{display:grid;grid-template-columns:1fr minmax(240px,0.8fr);gap:32px;align-items:center;padding:64px 8%}
     .hero h2{font-size:32px;margin:0 0 12px}
-    .hero-visual img{width:100%;height:auto;border-radius:20px}
+    .hero-visual img{width:100%;height:auto;border-radius:16px}
     .scroll-progress{position:fixed;top:0;left:0;width:100%;height:4px}
     @media(max-width:768px){.hero{grid-template-columns:1fr;gap:20px;padding:40px 6%}.hero-visual{max-width:360px;margin-inline:auto}.menu-toggle{display:flex}}
   </style>
