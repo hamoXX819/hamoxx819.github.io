@@ -207,6 +207,9 @@ const cardData = {
       aboutText: '学生が必要な情報を確認しやすくすることを目的にした、モバイル向けの制作物です。',
       purpose: '学生が必要な学校情報へ迷わずアクセスできるようにすること。',
       feature: 'モバイル前提の画面構成と、Supabaseを使ったデータ管理。',
+      challenge: '学校生活で必要な情報が散らばると、確認漏れや探す手間が増える点を課題として考えました。',
+      implementation: ['Flutterでスマホ向けの画面を構成', 'Supabase/Postgresでデータ管理を設計', '必要な情報へすばやく移動できる導線を意識'],
+      learning: 'モバイルUIでは、情報量を増やすよりも「すぐ分かる順番」に整理することが重要だと学びました。',
       tags: ['iOS/Android', 'Flutter', 'Supabase/Postgres', '学生向け']
     },
     {
@@ -215,6 +218,9 @@ const cardData = {
       aboutText: '授業の出欠を管理しやすくすることを目的にした、Webベースの制作物です。',
       purpose: '授業ごとの出欠状況を確認・管理しやすくすること。',
       feature: 'PHPとMySQLで基本的な登録・表示・管理の流れを実装。',
+      challenge: '紙や表計算だけでは、出欠状況の確認や集計に手間がかかる点を課題として考えました。',
+      implementation: ['HTML/CSS/JavaScriptで管理画面を作成', 'PHPで登録・更新処理を実装', 'MySQLで出欠データを扱う構成を作成'],
+      learning: 'フォーム、DB、画面表示がつながる基本的なWebアプリの流れを実践的に確認できました。',
       tags: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL']
     },
     {
@@ -223,6 +229,9 @@ const cardData = {
       aboutText: '災害情報や避難支援を分かりやすく届けることを目的にした、地域向けの制作物です。',
       purpose: '災害時に必要な情報を、地域の人がすばやく確認できるようにすること。',
       feature: '避難支援を意識した情報設計と、スマホで見やすいUI。',
+      challenge: '緊急時は落ち着いて情報を探しにくいため、必要な情報へ短い操作で届くことを課題として考えました。',
+      implementation: ['Flutterで地域向けの情報画面を設計', '災害情報と避難支援を分けて整理', '屋外や移動中でも見やすい表示を意識'],
+      learning: '非常時に使うUIでは、装飾よりも視認性と迷わない構成が大切だと学びました。',
       tags: ['iOS/Android', 'Flutter', 'Supabase/Postgres', '地域向け']
     }
   ]
@@ -246,7 +255,7 @@ const renderSkillCards = (container, cards) => {
 const renderWorkCards = (container, cards) => {
   const includeActions = container.dataset.cardActions === 'true';
 
-  container.innerHTML = cards.map((card) => {
+  container.innerHTML = cards.map((card, index) => {
     const text = includeActions ? card.text : card.aboutText;
     const tags = card.tags.map((tag) => `<span>${tag}</span>`).join('');
     const summary = `
@@ -270,7 +279,7 @@ const renderWorkCards = (container, cards) => {
     ` : '';
 
     return `
-      <div class="card">
+      <div class="card" data-work-index="${index}">
         <h3>${card.title}</h3>
         <p>${text}</p>
         ${summary}
@@ -457,12 +466,39 @@ function openModalFromCard(cardEl) {
   const titleEl = cardEl.querySelector('h3');
   const pEl = cardEl.querySelector('p');
   const tags = Array.from(cardEl.querySelectorAll('.tag-list span')).map(s => s.textContent.trim()).filter(Boolean);
+  const workIndex = Number(cardEl.dataset.workIndex);
+  const work = Number.isInteger(workIndex) ? cardData.works[workIndex] : null;
 
-  modalTitle.textContent = titleEl ? titleEl.textContent.trim() : '詳細';
-  // build body content
+  modalTitle.textContent = work ? work.title : titleEl ? titleEl.textContent.trim() : '詳細';
+
+  const detailList = work && work.implementation
+    ? work.implementation.map((item) => `<li>${item}</li>`).join('')
+    : '';
+
   let html = '';
-  if (pEl) html += `<p>${pEl.textContent.trim()}</p>`;
-  if (tags.length) html += '<p class="modal-tags"><strong>タグ: </strong>' + tags.join(' ・ ') + '</p>';
+  if (work) {
+    html = `
+      <p class="modal-lead">${work.text}</p>
+      <div class="modal-detail-grid">
+        <div class="modal-detail-block">
+          <h4>解決したい課題</h4>
+          <p>${work.challenge}</p>
+        </div>
+        <div class="modal-detail-block">
+          <h4>実装・工夫</h4>
+          <ul>${detailList}</ul>
+        </div>
+        <div class="modal-detail-block">
+          <h4>学んだこと</h4>
+          <p>${work.learning}</p>
+        </div>
+      </div>
+    `;
+  } else if (pEl) {
+    html = `<p>${pEl.textContent.trim()}</p>`;
+  }
+
+  if (tags.length) html += '<p class="modal-tags"><strong>使用技術: </strong>' + tags.join(' ・ ') + '</p>';
   modalBody.innerHTML = html;
 
   lastFocusedElement = document.activeElement;

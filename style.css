@@ -1125,8 +1125,59 @@ footer {
   line-height: 1.6;
 }
 
+.modal-lead {
+  margin: 0 0 16px;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.modal-detail-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.modal-detail-block {
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--card) 80%, var(--bg));
+}
+
+.modal-detail-block h4 {
+  margin: 0 0 8px;
+  color: var(--scene-main);
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.modal-detail-block p,
+.modal-detail-block ul {
+  margin: 0;
+}
+
+.modal-detail-block ul {
+  padding-left: 20px;
+}
+
+.modal-detail-block li {
+  margin: 4px 0;
+}
+
+.modal-tags {
+  margin: 16px 0 0;
+  color: var(--sub);
+  font-size: 14px;
+}
+
 @media (max-width: 600px) {
-  .modal-dialog { padding: 14px; }
+  .modal-dialog {
+    width: min(94%, 420px);
+    padding: 14px;
+  }
+
+  .modal-detail-block {
+    padding: 12px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
