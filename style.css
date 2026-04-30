@@ -624,10 +624,48 @@ html[data-theme="dark"] .hero-visual img {
 }
 
 .skill-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   margin: 0 0 8px;
   font-size: 19px;
   font-weight: 900;
   color: var(--text);
+}
+
+.skill-icon {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  color: var(--scene-main);
+  background: color-mix(in srgb, var(--scene-main) 12%, var(--card));
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.1);
+}
+
+.skill-icon svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.skill-card-mobile .skill-icon,
+.skill-card-infra .skill-icon {
+  color: var(--accent-2);
+  background: color-mix(in srgb, var(--accent-2) 14%, var(--card));
+}
+
+.skill-card-backend .skill-icon,
+.skill-card-engineering .skill-icon {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, var(--card));
 }
 
 .skill-card p {
