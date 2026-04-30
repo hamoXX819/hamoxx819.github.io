@@ -205,18 +205,24 @@ const cardData = {
       title: '学校ポータルアプリ',
       text: 'Flutter + Supabaseで開発した、学生向けポータルアプリです。',
       aboutText: '学生が必要な情報を確認しやすくすることを目的にした、モバイル向けの制作物です。',
+      purpose: '学生が必要な学校情報へ迷わずアクセスできるようにすること。',
+      feature: 'モバイル前提の画面構成と、Supabaseを使ったデータ管理。',
       tags: ['iOS/Android', 'Flutter', 'Supabase/Postgres', '学生向け']
     },
     {
       title: '出欠管理システム',
       text: 'XAMPPで開発した、授業の出欠を管理するWebシステムです。',
       aboutText: '授業の出欠を管理しやすくすることを目的にした、Webベースの制作物です。',
+      purpose: '授業ごとの出欠状況を確認・管理しやすくすること。',
+      feature: 'PHPとMySQLで基本的な登録・表示・管理の流れを実装。',
       tags: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL']
     },
     {
       title: '防災アプリ',
       text: '災害情報・避難支援を目的とした地域向けアプリです。',
       aboutText: '災害情報や避難支援を分かりやすく届けることを目的にした、地域向けの制作物です。',
+      purpose: '災害時に必要な情報を、地域の人がすばやく確認できるようにすること。',
+      feature: '避難支援を意識した情報設計と、スマホで見やすいUI。',
       tags: ['iOS/Android', 'Flutter', 'Supabase/Postgres', '地域向け']
     }
   ]
@@ -243,11 +249,23 @@ const renderWorkCards = (container, cards) => {
   container.innerHTML = cards.map((card) => {
     const text = includeActions ? card.text : card.aboutText;
     const tags = card.tags.map((tag) => `<span>${tag}</span>`).join('');
+    const summary = `
+      <dl class="work-summary">
+        <div>
+          <dt>目的</dt>
+          <dd>${card.purpose}</dd>
+        </div>
+        <div>
+          <dt>工夫</dt>
+          <dd>${card.feature}</dd>
+        </div>
+      </dl>
+    `;
     const actions = includeActions ? `
       <div class="card-links">
         <a href="#links">関連リンク</a>
         <button class="card-detail" type="button" aria-haspopup="dialog">詳細</button>
-        <a href="#contact">相談する</a>
+        <a href="#contact">連絡先</a>
       </div>
     ` : '';
 
@@ -255,6 +273,7 @@ const renderWorkCards = (container, cards) => {
       <div class="card">
         <h3>${card.title}</h3>
         <p>${text}</p>
+        ${summary}
         <div class="tag-list">${tags}</div>
         ${actions}
       </div>

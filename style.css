@@ -843,6 +843,38 @@ html[data-theme="dark"] .hero-visual img {
   margin-bottom: 0;
 }
 
+.work-summary {
+  display: grid;
+  gap: 10px;
+  margin: 18px 0 0;
+}
+
+.work-summary div {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  padding: 12px;
+  border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--card) 80%, var(--bg));
+}
+
+.work-summary dt {
+  color: var(--scene-main);
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1.5;
+}
+
+.work-summary dd {
+  margin: 0;
+  color: var(--sub);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
 .tag-list {
   display: flex;
   flex-wrap: wrap;
@@ -1293,6 +1325,20 @@ footer {
 
   .card p {
     font-size: 14px;
+  }
+
+  .work-summary div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 10px;
+  }
+
+  .work-summary dt {
+    font-size: 12px;
+  }
+
+  .work-summary dd {
+    font-size: 13px;
   }
 
   .section-lead {
