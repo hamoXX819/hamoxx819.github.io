@@ -432,6 +432,11 @@ nav a.is-active {
   color: var(--scene-main);
 }
 
+nav a[aria-current="page"] {
+  background: color-mix(in srgb, var(--scene-main) 12%, transparent);
+  color: var(--scene-main);
+}
+
 /* Hamburger Menu */
 .menu-toggle {
   display: none;
@@ -520,6 +525,46 @@ main {
 #about p {
   font-size: 18px;
   color: var(--sub);
+}
+
+.content {
+  max-width: 1000px;
+}
+
+.content > .section-lead {
+  margin-bottom: 22px;
+}
+
+.content h3 {
+  margin: 56px 0 18px;
+  color: var(--text);
+  font-size: clamp(22px, 3vw, 28px);
+  line-height: 1.35;
+}
+
+.content h3::before {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 8px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--scene-main), var(--accent));
+  vertical-align: 0.12em;
+}
+
+.about-story {
+  display: grid;
+  gap: 14px;
+  max-width: 760px;
+  margin-top: 22px;
+}
+
+.about-story p {
+  margin: 0;
+  color: var(--sub);
+  font-size: 17px;
+  font-weight: 600;
 }
 
 .hero {
@@ -1365,6 +1410,20 @@ footer {
 
   section h2 {
     font-size: 24px;
+  }
+
+  .content h3 {
+    margin-top: 42px;
+    font-size: 21px;
+  }
+
+  .about-story {
+    gap: 12px;
+    margin-top: 18px;
+  }
+
+  .about-story p {
+    font-size: 15px;
   }
 
   #about p {
