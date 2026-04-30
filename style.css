@@ -685,6 +685,10 @@ html[data-theme="dark"] .hero-visual img {
   color: var(--sub);
 }
 
+.skill-tag-list {
+  margin-top: 12px;
+}
+
 /* Cards */
 .card {
   background: var(--card);

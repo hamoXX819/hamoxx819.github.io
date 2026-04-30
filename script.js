@@ -158,12 +158,12 @@ const cardData = {
     { className: 'skill-card-cert-electric', icon: 'certElectric', title: '第二種電気工事士', text: '電気設備や安全に関する基礎知識を、ものづくりの視点にも活かしています。' }
   ],
   skills: [
-    { className: 'skill-card-frontend', icon: 'frontend', title: 'フロントエンド', text: 'HTML / CSS / JavaScript' },
-    { className: 'skill-card-mobile', icon: 'mobile', title: 'モバイル', text: 'Flutter / Dart' },
-    { className: 'skill-card-backend', icon: 'backend', title: 'バックエンド', text: 'PHP / MySQL / Supabase' },
-    { className: 'skill-card-infra', icon: 'infra', title: 'インフラストラクチャ', text: 'Linux / Docker / AWS / Azure' },
-    { className: 'skill-card-language', icon: 'language', title: '言語', text: 'C / C# / SQL / Python / JavaScript / VBA' },
-    { className: 'skill-card-engineering', icon: 'engineering', title: '機械工学', text: 'CAD / 電気制御 / PLC / 画像処理' }
+    { className: 'skill-card-frontend', icon: 'frontend', title: 'フロントエンド', tags: ['HTML', 'CSS', 'JavaScript'] },
+    { className: 'skill-card-mobile', icon: 'mobile', title: 'モバイル', tags: ['Flutter', 'Dart'] },
+    { className: 'skill-card-backend', icon: 'backend', title: 'バックエンド', tags: ['PHP', 'MySQL', 'Supabase'] },
+    { className: 'skill-card-infra', icon: 'infra', title: 'インフラストラクチャ', tags: ['Linux', 'Docker', 'AWS', 'Azure'] },
+    { className: 'skill-card-language', icon: 'language', title: '言語', tags: ['C', 'C#', 'SQL', 'Python', 'JavaScript', 'VBA'] },
+    { className: 'skill-card-engineering', icon: 'engineering', title: '機械工学', tags: ['CAD', '電気制御', 'PLC', '画像処理'] }
   ],
   works: [
     {
@@ -188,12 +188,18 @@ const cardData = {
 };
 
 const renderSkillCards = (container, cards) => {
-  container.innerHTML = cards.map((card) => `
-    <article class="skill-card ${card.className}">
-      <h3><span class="skill-icon" aria-hidden="true">${iconSvg[card.icon]}</span>${card.title}</h3>
-      <p>${card.text}</p>
-    </article>
-  `).join('');
+  container.innerHTML = cards.map((card) => {
+    const body = card.tags
+      ? `<div class="tag-list skill-tag-list">${card.tags.map((tag) => `<span>${tag}</span>`).join('')}</div>`
+      : `<p>${card.text}</p>`;
+
+    return `
+      <article class="skill-card ${card.className}">
+        <h3><span class="skill-icon" aria-hidden="true">${iconSvg[card.icon]}</span>${card.title}</h3>
+        ${body}
+      </article>
+    `;
+  }).join('');
 };
 
 const renderWorkCards = (container, cards) => {
