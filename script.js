@@ -137,9 +137,7 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-// ページロード時のフェードインアニメーション
 window.addEventListener('load', () => {
-  document.body.classList.add('loaded');
   updateHeaderOffset();
 });
 

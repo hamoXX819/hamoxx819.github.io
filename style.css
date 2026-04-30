@@ -7,7 +7,6 @@
   --warm-band: rgba(255, 241, 194, 0.65);
   --text: #172033;
   --sub: #64748b;
-  --main: #2563eb;
   --scene-main: #2563eb;
   --accent: #f97316;
   --accent-soft: #fff1c2;
@@ -26,7 +25,6 @@ html[data-theme="dark"] {
   --warm-band: rgba(251, 146, 60, 0.12);
   --text: #edf5ff;
   --sub: #a5b4c7;
-  --main: #60a5fa;
   --accent: #fb923c;
   --accent-soft: rgba(251, 191, 36, 0.14);
   --accent-2: #2dd4bf;
@@ -327,21 +325,6 @@ body.scene-contact .scene-indicator {
   transform: translateY(-2px);
 }
 
-.header-about {
-  margin-left: 12px;
-  padding: 6px 10px;
-  border-radius: 8px;
-  background: transparent;
-  color: var(--text);
-  border: 1px solid transparent;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.header-about:hover {
-  border-color: var(--border);
-}
-
 .theme-toggle {
   border: 1px solid var(--border);
   background: color-mix(in srgb, var(--card) 88%, white);
@@ -483,16 +466,6 @@ section h2::after {
 
 main {
   display: block;
-}
-
-/* About Section */
-#about {
-  padding-top: 120px;
-}
-
-#about p {
-  font-size: 18px;
-  color: var(--sub);
 }
 
 .content {
@@ -1374,10 +1347,6 @@ footer {
 
   .about-story p {
     font-size: 15px;
-  }
-
-  #about p {
-    font-size: 16px;
   }
 
   .hero {
