@@ -175,6 +175,7 @@ const sceneSections = document.querySelectorAll('section[data-scene]');
 const sceneNavMap = {
   skills: '#skills',
   works: '#works',
+  links: '#links',
   contact: '#contact'
 };
 
@@ -182,6 +183,7 @@ const sceneLabelMap = {
   intro: 'INTRO',
   skills: 'SKILLS',
   works: 'WORKS',
+  links: 'LINKS',
   contact: 'CONTACT'
 };
 
@@ -221,7 +223,7 @@ const sceneObserver = new IntersectionObserver((entries) => {
       return;
     }
 
-    document.body.classList.remove('scene-intro', 'scene-skills', 'scene-works', 'scene-contact');
+    document.body.classList.remove('scene-intro', 'scene-skills', 'scene-works', 'scene-links', 'scene-contact');
     document.body.classList.add(`scene-${sceneName}`);
     updateActiveNav(sceneName);
   });

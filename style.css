@@ -139,6 +139,10 @@ body.scene-works {
   --scene-main: #14b8a6;
 }
 
+body.scene-links {
+  --scene-main: #db2777;
+}
+
 body.scene-contact {
   --scene-main: #f97316;
 }
@@ -190,6 +194,12 @@ body.scene-works::before {
     linear-gradient(90deg, rgba(37, 99, 235, 0.045) 1px, transparent 1px);
 }
 
+body.scene-links::before {
+  background-image:
+    linear-gradient(rgba(219, 39, 119, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(249, 115, 22, 0.045) 1px, transparent 1px);
+}
+
 body.scene-contact::before {
   background-image:
     linear-gradient(rgba(249, 115, 22, 0.065) 1px, transparent 1px),
@@ -202,6 +212,10 @@ body.scene-skills::after {
 
 body.scene-works::after {
   opacity: 0.28;
+}
+
+body.scene-links::after {
+  opacity: 0.26;
 }
 
 body.scene-contact::after {
@@ -222,8 +236,9 @@ header {
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
   padding: 14px 8%;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(150px, 1fr) auto minmax(150px, 1fr);
+  column-gap: 20px;
   align-items: center;
 }
 
@@ -231,10 +246,12 @@ header {
   display: flex;
   gap: 8px;
   align-items: center;
-  margin-left: auto;
+  justify-self: end;
+  margin-left: 0;
 }
 
 header h1 {
+  justify-self: start;
   margin: 0;
   font-size: 22px;
   color: var(--text);
@@ -333,6 +350,7 @@ body.scene-contact .scene-indicator {
 .theme-toggle:focus-visible,
 .menu-toggle:focus-visible,
 nav a:focus-visible,
+.btn:focus-visible,
 .card-links a:focus-visible,
 .card-detail:focus-visible,
 #contact a:focus-visible {
@@ -344,6 +362,7 @@ nav {
   display: flex;
   gap: 8px;
   align-items: center;
+  justify-self: center;
 }
 
 nav a {
@@ -741,20 +760,31 @@ html[data-theme="dark"] .hero-visual img {
   margin-top: 12px;
 }
 
+.link-actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.link-actions .btn {
+  min-height: 52px;
+}
+
 html[data-theme="dark"] .hero-points span,
 html[data-theme="dark"] .tag-list span {
   background: rgba(15, 23, 42, 0.45);
 }
 
 /* Contact Section */
-#contact a {
+#contact a:not(.btn) {
   color: var(--scene-main);
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s;
 }
 
-#contact a:hover {
+#contact a:not(.btn):hover {
   color: var(--scene-main);
   text-decoration: underline;
 }
@@ -856,6 +886,8 @@ footer {
 @media (max-width: 768px) {
   header {
     padding: 12px 6%;
+    grid-template-columns: minmax(120px, 1fr) auto minmax(120px, 1fr);
+    column-gap: 12px;
   }
 
   header h1 {
@@ -888,6 +920,10 @@ footer {
     padding: 24px;
   }
 
+  .link-actions {
+    grid-template-columns: 1fr;
+  }
+
   .card h3 {
     font-size: 22px;
   }
@@ -897,6 +933,7 @@ footer {
 @media (max-width: 600px) {
   header {
     padding: 12px 5%;
+    display: flex;
     flex-wrap: wrap;
   }
 
