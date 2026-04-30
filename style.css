@@ -544,6 +544,14 @@ main {
   transition: color 0.45s ease;
 }
 
+.section-lead {
+  max-width: 640px;
+  margin: -4px 0 0;
+  color: var(--sub);
+  font-size: 17px;
+  font-weight: 600;
+}
+
 .hero h2 {
   font-size: clamp(36px, 6vw, 64px);
   line-height: 1.25;
@@ -1158,6 +1166,7 @@ footer {
   .header-actions {
     order: 2;
     width: auto;
+    margin-left: auto;
     justify-content: flex-end;
   }
 
@@ -1217,6 +1226,10 @@ footer {
 
   .card p {
     font-size: 14px;
+  }
+
+  .section-lead {
+    font-size: 15px;
   }
 
   .scene-indicator {

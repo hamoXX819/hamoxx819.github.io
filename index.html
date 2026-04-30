@@ -58,7 +58,8 @@
     .hero h2{font-size:clamp(36px,6vw,64px);font-weight:900;line-height:1.25;margin:0 0 12px}
     .hero-visual img{width:100%;height:auto;border-radius:16px}
     .scroll-progress{position:fixed;top:0;left:0;width:100%;height:4px}
-    @media(max-width:768px){.hero{grid-template-columns:1fr;gap:20px;padding:40px 6%}.hero-visual{max-width:360px;margin-inline:auto}.menu-toggle{display:flex}}
+    @media(max-width:768px){.hero{grid-template-columns:1fr;gap:20px;padding:40px 6%}.hero-visual{max-width:360px;margin-inline:auto}}
+    @media(max-width:600px){.menu-toggle{display:flex}}
     @media(max-width:600px){header{display:flex}}
   </style>
 </head>
@@ -73,7 +74,7 @@
 <header>
   <h1><a href="index.html">hamoXX819</a></h1>
 
-  <nav id="menu" role="navigation" aria-label="メインナビゲーション" aria-hidden="true">
+  <nav id="menu" role="navigation" aria-label="メインナビゲーション" aria-hidden="false">
     <a href="about.html">About</a>
     <a href="#skills">Skills</a>
     <a href="#works">Works</a>
@@ -120,7 +121,7 @@
       </div>
     </div>
     <figure class="hero-visual">
-      <img src="images/profile.svg" alt="プロフィールイメージ" loading="lazy" decoding="async" width="480" height="480">
+      <img src="images/profile.svg" alt="プロフィールイメージ" decoding="async" fetchpriority="high" width="480" height="480">
     </figure>
   </section>
 
@@ -136,6 +137,9 @@
 
   <section id="links" data-scene="links">
     <h2>関連リンク</h2>
+    <p class="section-lead">
+      制作物、自己紹介、連絡先をまとめています。現在公開できる情報から順に整理しています。
+    </p>
     <div class="link-actions">
       <a class="btn btn-primary" href="#works">制作物を見る</a>
       <a class="btn btn-ghost" href="about.html">詳しい自己紹介</a>
@@ -145,6 +149,9 @@
 
   <section id="contact" data-scene="contact">
     <h2>連絡先</h2>
+    <p class="section-lead">
+      公開用の連絡先は準備中です。まずは制作物やプロフィールから、取り組み内容を確認できます。
+    </p>
     <div class="contact-actions">
       <a class="btn btn-primary" href="#links">関連リンクを見る</a>
       <a class="btn btn-ghost" href="about.html">プロフィールを見る</a>
@@ -162,10 +169,10 @@
 <div id="card-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
   <div class="modal-overlay" data-close="true"></div>
   <div class="modal-dialog" role="document">
-    <header class="modal-header">
+    <div class="modal-header">
       <h3 id="modal-title">Title</h3>
       <button class="modal-close" aria-label="閉じる">✕</button>
-    </header>
+    </div>
     <div id="modal-body" class="modal-body">
       <p>詳細内容</p>
     </div>

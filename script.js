@@ -48,6 +48,15 @@ const syncMenuVisibility = () => {
 
   const isMobile = window.matchMedia('(max-width: 600px)').matches;
   const isExpanded = menuToggle.classList.contains('active');
+
+  if (!isMobile) {
+    menuToggle.classList.remove('active');
+    menu.classList.remove('active');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menu.setAttribute('aria-hidden', 'false');
+    return;
+  }
+
   menu.setAttribute('aria-hidden', isMobile && !isExpanded ? 'true' : 'false');
 };
 
@@ -336,13 +345,11 @@ const updateActiveNav = (sceneName) => {
   });
 
   const targetSelector = sceneNavMap[sceneName];
-  if (!targetSelector) {
-    return;
-  }
-
-  const targetLink = menu.querySelector(`a[href="${targetSelector}"]`);
-  if (targetLink) {
-    targetLink.classList.add('is-active');
+  if (targetSelector) {
+    const targetLink = menu.querySelector(`a[href="${targetSelector}"]`);
+    if (targetLink) {
+      targetLink.classList.add('is-active');
+    }
   }
 
   if (sceneIndicator) {
