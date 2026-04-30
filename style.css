@@ -612,15 +612,16 @@ main {
 .hero-visual img {
   width: 100%;
   display: block;
-  border-radius: 16px;
-  border: 2px solid rgba(255, 255, 255, 0.82);
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(232, 246, 255, 0.72));
-  box-shadow: var(--shadow-soft);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  filter: drop-shadow(0 24px 28px rgba(37, 99, 235, 0.16));
 }
 
 html[data-theme="dark"] .hero-visual img {
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: none;
+  filter: drop-shadow(0 24px 28px rgba(0, 0, 0, 0.32));
 }
 
 /* Skills */
