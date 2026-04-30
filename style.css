@@ -631,6 +631,10 @@ html[data-theme="dark"] .hero-visual img {
   gap: 18px;
 }
 
+.principle-list {
+  grid-template-columns: 1fr;
+}
+
 .skill-card {
   border: 1px solid var(--border);
   background: var(--card);
@@ -721,6 +725,18 @@ html[data-theme="dark"] .hero-visual img {
 .skill-card-cert-electric .skill-icon {
   color: var(--accent);
   background: color-mix(in srgb, var(--accent) 14%, var(--card));
+}
+
+.skill-card-hobby-diy .skill-icon,
+.skill-card-hobby-game .skill-icon {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, var(--card));
+}
+
+.skill-card-hobby-travel .skill-icon,
+.skill-card-hobby-manga .skill-icon {
+  color: var(--accent-2);
+  background: color-mix(in srgb, var(--accent-2) 14%, var(--card));
 }
 
 .skill-card p {

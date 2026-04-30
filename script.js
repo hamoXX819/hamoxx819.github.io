@@ -157,7 +157,12 @@ const iconSvg = {
   maintainable: '<svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 1-15.5 6.2"/><path d="M3 12A9 9 0 0 1 18.5 5.8"/><path d="M3 18h5v-5"/><path d="M21 6h-5v5"/></svg>',
   certBasic: '<svg viewBox="0 0 24 24"><path d="M7 3h10a2 2 0 0 1 2 2v16l-7-3-7 3V5a2 2 0 0 1 2-2Z"/><path d="M9 8h6"/><path d="M9 12h4"/></svg>',
   certSecurity: '<svg viewBox="0 0 24 24"><path d="M12 3 19 6v5c0 4.5-2.8 8.5-7 10-4.2-1.5-7-5.5-7-10V6l7-3Z"/><path d="m9.5 12 1.8 1.8L15 10"/></svg>',
-  certElectric: '<svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 10-13h-7l0-7Z"/></svg>'
+  certElectric: '<svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 10-13h-7l0-7Z"/></svg>',
+  automation: '<svg viewBox="0 0 24 24"><path d="M12 3v3"/><path d="M12 18v3"/><path d="M4.2 7.5l2.6 1.5"/><path d="M17.2 15l2.6 1.5"/><path d="M19.8 7.5 17.2 9"/><path d="M6.8 15l-2.6 1.5"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg>',
+  diy: '<svg viewBox="0 0 24 24"><path d="m14.7 6.3 3-3 3 3-3 3"/><path d="M3 21l8.8-8.8"/><path d="m12 7 5 5"/><path d="M5 19l-1 2 2-1"/></svg>',
+  travel: '<svg viewBox="0 0 24 24"><path d="M3 11 21 3l-7 18-3-8-8-2Z"/><path d="m11 13 4-4"/></svg>',
+  game: '<svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="10" rx="4"/><path d="M8 13h4"/><path d="M10 11v4"/><path d="M16 12h.01"/><path d="M18 14h.01"/></svg>',
+  manga: '<svg viewBox="0 0 24 24"><path d="M5 4h10a4 4 0 0 1 4 4v12H9a4 4 0 0 0-4-4V4Z"/><path d="M5 16a4 4 0 0 1 4 4"/><path d="M9 8h6"/><path d="M9 12h5"/></svg>'
 };
 
 const cardData = {
@@ -170,6 +175,13 @@ const cardData = {
     { className: 'skill-card-cert-basic', icon: 'certBasic', title: '基本情報技術者', text: 'ITの基礎、アルゴリズム、システム開発、ネットワークなどの知識を学んでいます。' },
     { className: 'skill-card-cert-security', icon: 'certSecurity', title: '情報セキュリティマネジメント', text: '情報セキュリティの考え方、リスク管理、運用面の対策を意識しています。' },
     { className: 'skill-card-cert-electric', icon: 'certElectric', title: '第二種電気工事士', text: '電気設備や安全に関する基礎知識を、ものづくりの視点にも活かしています。' }
+  ],
+  hobbies: [
+    { className: 'skill-card-hobby-automation', icon: 'automation', title: '自動化', text: '繰り返し作業を仕組み化して、少しずつ楽にすることが好きです。' },
+    { className: 'skill-card-hobby-diy', icon: 'diy', title: 'DIY', text: '手を動かしながら、必要なものを自分で作る過程を楽しんでいます。' },
+    { className: 'skill-card-hobby-travel', icon: 'travel', title: '旅行', text: '知らない場所や文化に触れて、視野を広げる時間を大切にしています。' },
+    { className: 'skill-card-hobby-game', icon: 'game', title: 'ゲーム', text: 'UI、世界観、仕組みの作り方など、遊びながら学ぶことも多いです。' },
+    { className: 'skill-card-hobby-manga', icon: 'manga', title: '漫画', text: 'ストーリーや表現の工夫から、伝え方のヒントをもらっています。' }
   ],
   skills: [
     { className: 'skill-card-frontend', icon: 'frontend', title: 'フロントエンド', tags: ['HTML', 'CSS', 'JavaScript'] },
