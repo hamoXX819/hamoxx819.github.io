@@ -1,37 +1,42 @@
 /* CSS Variables */
 :root {
-  --bg: #f7fbff;
-  --bg-strong: #e8f6ff;
-  --bg-end: #f8fbff;
-  --shine: rgba(255, 255, 255, 0.94);
-  --warm-band: rgba(255, 241, 194, 0.65);
-  --text: #172033;
-  --sub: #64748b;
-  --scene-main: #2563eb;
-  --accent: #f97316;
-  --accent-soft: #fff1c2;
-  --accent-2: #14b8a6;
-  --card: rgba(255, 255, 255, 0.9);
-  --border: rgba(30, 64, 175, 0.14);
-  --header-bg: rgba(247, 251, 255, 0.82);
-  --shadow-soft: 0 18px 44px rgba(37, 99, 235, 0.12);
+  --bg: #f4f7ea;
+  --bg-strong: #e3f7d6;
+  --bg-end: #fff2c7;
+  --shine: rgba(255, 255, 255, 0.82);
+  --warm-band: rgba(255, 204, 77, 0.24);
+  --text: #182117;
+  --sub: #52624e;
+  --scene-main: #2f8f46;
+  --accent: #ffb000;
+  --accent-soft: #fff0b8;
+  --accent-2: #23a6d5;
+  --danger: #ef476f;
+  --card: rgba(255, 255, 247, 0.92);
+  --border: rgba(47, 143, 70, 0.28);
+  --header-bg: rgba(244, 247, 234, 0.86);
+  --shadow-soft: 0 14px 0 rgba(24, 33, 23, 0.1), 0 22px 44px rgba(47, 143, 70, 0.12);
+  --pixel-shadow: 3px 3px 0 rgba(24, 33, 23, 0.16);
 }
 
 html[data-theme="dark"] {
-  --bg: #111827;
-  --bg-strong: #172033;
-  --bg-end: #0f172a;
-  --shine: rgba(96, 165, 250, 0.12);
-  --warm-band: rgba(251, 146, 60, 0.12);
-  --text: #edf5ff;
-  --sub: #a5b4c7;
-  --accent: #fb923c;
-  --accent-soft: rgba(251, 191, 36, 0.14);
-  --accent-2: #2dd4bf;
-  --card: rgba(17, 24, 39, 0.88);
-  --border: rgba(148, 163, 184, 0.22);
-  --header-bg: rgba(15, 23, 42, 0.78);
-  --shadow-soft: 0 20px 48px rgba(0, 0, 0, 0.32);
+  --bg: #17181f;
+  --bg-strong: #1f2f26;
+  --bg-end: #241b2f;
+  --shine: rgba(74, 222, 128, 0.08);
+  --warm-band: rgba(255, 176, 0, 0.12);
+  --text: #f5ffe8;
+  --sub: #bfd4b8;
+  --scene-main: #63e06f;
+  --accent: #ffd166;
+  --accent-soft: rgba(255, 209, 102, 0.16);
+  --accent-2: #4cc9f0;
+  --danger: #ff5d8f;
+  --card: rgba(24, 27, 32, 0.9);
+  --border: rgba(99, 224, 111, 0.34);
+  --header-bg: rgba(23, 24, 31, 0.86);
+  --shadow-soft: 0 14px 0 rgba(0, 0, 0, 0.22), 0 24px 52px rgba(0, 0, 0, 0.34);
+  --pixel-shadow: 3px 3px 0 rgba(0, 0, 0, 0.38);
 }
 
 /* Keyframe Animations */
@@ -124,7 +129,8 @@ body {
   margin: 0;
   font-family: "Hiragino Maru Gothic ProN", "Yu Gothic", "YuGothic", "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background:
-    linear-gradient(135deg, var(--shine) 0 22%, var(--warm-band) 22% 34%, transparent 34%),
+    linear-gradient(135deg, var(--shine) 0 18%, transparent 18% 34%, var(--warm-band) 34% 46%, transparent 46%),
+    radial-gradient(circle at 14% 18%, color-mix(in srgb, var(--accent-2) 18%, transparent) 0 12%, transparent 32%),
     linear-gradient(180deg, var(--bg) 0%, var(--bg-strong) 48%, var(--bg-end) 100%);
   color: var(--text);
   line-height: 1.8;
@@ -166,9 +172,9 @@ body::before {
   opacity: 0.72;
   transition: background 0.8s ease, opacity 0.6s ease;
   background-image:
-    linear-gradient(rgba(37, 99, 235, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(20, 184, 166, 0.055) 1px, transparent 1px);
-  background-size: 34px 34px;
+    linear-gradient(color-mix(in srgb, var(--scene-main) 16%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--accent-2) 13%, transparent) 1px, transparent 1px);
+  background-size: 28px 28px;
   mask-image: linear-gradient(180deg, black 0%, rgba(0, 0, 0, 0.72) 44%, transparent 100%);
 }
 
@@ -180,8 +186,8 @@ body::after {
   pointer-events: none;
   opacity: 0.34;
   background-image:
-    linear-gradient(118deg, transparent 0 12%, rgba(20, 184, 166, 0.1) 12% 18%, transparent 18% 48%, rgba(249, 115, 22, 0.12) 48% 53%, transparent 53%),
-    repeating-linear-gradient(130deg, rgba(37, 99, 235, 0.1) 0 2px, transparent 2px 30px);
+    linear-gradient(118deg, transparent 0 12%, color-mix(in srgb, var(--accent-2) 16%, transparent) 12% 18%, transparent 18% 48%, color-mix(in srgb, var(--accent) 18%, transparent) 48% 53%, transparent 53%),
+    repeating-linear-gradient(130deg, color-mix(in srgb, var(--scene-main) 14%, transparent) 0 2px, transparent 2px 30px);
   transition: opacity 0.6s ease;
 }
 
@@ -243,7 +249,7 @@ header {
   z-index: 10;
   background: var(--header-bg);
   backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 3px solid var(--border);
   padding: 14px 8%;
   display: grid;
   grid-template-columns: minmax(150px, 1fr) auto minmax(150px, 1fr);
@@ -275,6 +281,7 @@ header h1 a {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  text-shadow: var(--pixel-shadow);
 }
 
 .scroll-progress {
@@ -304,14 +311,14 @@ header h1 a {
   bottom: 24px;
   z-index: 18;
   padding: 7px 12px;
-  border-radius: 999px;
+  border-radius: 4px;
   font-size: 11px;
   letter-spacing: 0;
   font-weight: 900;
   color: var(--text);
   background: var(--accent-soft);
   border: 1px solid rgba(249, 115, 22, 0.22);
-  box-shadow: 0 10px 24px rgba(249, 115, 22, 0.12);
+  box-shadow: var(--pixel-shadow);
   transition: background 0.45s ease, transform 0.3s ease;
 }
 
@@ -331,7 +338,7 @@ body.scene-contact .scene-indicator {
   color: var(--text);
   width: 42px;
   height: 42px;
-  border-radius: 999px;
+  border-radius: 6px;
   cursor: pointer;
   margin-left: auto;
   margin-right: 12px;
@@ -368,14 +375,17 @@ nav a {
   color: var(--text);
   text-decoration: none;
   font-weight: 800;
-  border-radius: 999px;
+  border: 1px solid transparent;
+  border-radius: 6px;
   padding: 8px 12px;
   transition: color 0.3s, background 0.3s, border-color 0.3s;
 }
 
 nav a:hover {
   background: color-mix(in srgb, var(--scene-main) 10%, transparent);
+  border-color: var(--border);
   color: var(--scene-main);
+  box-shadow: inset 0 -3px 0 color-mix(in srgb, var(--scene-main) 26%, transparent);
 }
 
 nav a.is-active {
@@ -464,6 +474,14 @@ section h2::after {
   transition: background 0.45s ease;
 }
 
+section h2::before {
+  content: "▶";
+  margin-right: 10px;
+  color: var(--accent);
+  -webkit-text-fill-color: var(--accent);
+  text-shadow: var(--pixel-shadow);
+}
+
 main {
   display: block;
 }
@@ -489,7 +507,7 @@ main {
   width: 9px;
   height: 9px;
   margin-right: 8px;
-  border-radius: 999px;
+  border-radius: 2px;
   background: linear-gradient(135deg, var(--scene-main), var(--accent));
   vertical-align: 0.12em;
 }
@@ -521,7 +539,7 @@ main {
   margin: 0 0 14px;
   padding: 6px 10px;
   border: 1px solid color-mix(in srgb, var(--scene-main) 18%, transparent);
-  border-radius: 999px;
+  border-radius: 4px;
   background: color-mix(in srgb, var(--scene-main) 8%, var(--card));
   letter-spacing: 0;
   text-transform: uppercase;
@@ -529,6 +547,12 @@ main {
   font-size: 12px;
   font-weight: 900;
   transition: color 0.45s ease;
+}
+
+.eyebrow::before {
+  content: "LV.";
+  margin-right: 4px;
+  color: var(--accent);
 }
 
 .section-lead {
@@ -544,7 +568,7 @@ main {
   line-height: 1.25;
   margin-bottom: 20px;
   letter-spacing: 0;
-  text-shadow: 0 8px 24px rgba(37, 99, 235, 0.12);
+  text-shadow: var(--pixel-shadow), 0 8px 24px color-mix(in srgb, var(--scene-main) 22%, transparent);
 }
 
 .hero p {
@@ -572,14 +596,14 @@ main {
 .tag-list span {
   border: 1px solid var(--border);
   background: var(--card);
-  border-radius: 999px;
+  border-radius: 6px;
   font-weight: 800;
 }
 
 .hero-points span {
   padding: 10px 14px;
   color: var(--text);
-  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.07);
+  box-shadow: inset 0 -3px 0 color-mix(in srgb, var(--scene-main) 16%, transparent);
   transition: color 0.45s ease;
 }
 
@@ -609,6 +633,20 @@ main {
   margin: 0;
   position: relative;
   justify-self: center;
+}
+
+.hero-visual::before {
+  content: "";
+  position: absolute;
+  inset: 11% 7% 8%;
+  z-index: -1;
+  border: 3px solid var(--border);
+  border-radius: 10px;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--scene-main) 16%, transparent) 50%, transparent 50%),
+    linear-gradient(color-mix(in srgb, var(--accent) 12%, transparent) 50%, transparent 50%);
+  background-size: 18px 18px;
+  box-shadow: var(--shadow-soft);
 }
 
 .hero-visual img {
@@ -642,7 +680,7 @@ html[data-theme="dark"] .hero-visual img {
   background: var(--card);
   padding: 22px;
   border-radius: 8px;
-  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.08);
+  box-shadow: var(--pixel-shadow), 0 12px 28px rgba(37, 99, 235, 0.08);
   opacity: 0;
   transform: translateY(24px);
 }
@@ -689,7 +727,7 @@ html[data-theme="dark"] .hero-visual img {
   justify-content: center;
   width: 34px;
   height: 34px;
-  border-radius: 999px;
+  border-radius: 6px;
   color: var(--scene-main);
   background: color-mix(in srgb, var(--scene-main) 12%, var(--card));
   box-shadow: 0 8px 18px rgba(37, 99, 235, 0.1);
@@ -764,6 +802,23 @@ html[data-theme="dark"] .hero-visual img {
   transform: translateY(30px);
 }
 
+.card,
+.skill-card,
+.link-item {
+  position: relative;
+}
+
+.card::after,
+.skill-card::after,
+.link-item::after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  pointer-events: none;
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+  border-radius: 4px;
+}
+
 .card.in-view {
   animation: slideUpFade 0.6s ease-out forwards;
 }
@@ -781,9 +836,9 @@ html[data-theme="dark"] .hero-visual img {
 }
 
 .card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-4px);
   border-color: color-mix(in srgb, var(--scene-main) 34%, var(--border));
-  box-shadow: 0 22px 46px rgba(37, 99, 235, 0.16);
+  box-shadow: 0 8px 0 color-mix(in srgb, var(--scene-main) 30%, transparent), 0 22px 46px rgba(37, 99, 235, 0.16);
 }
 
 .card h3 {
@@ -795,14 +850,14 @@ html[data-theme="dark"] .hero-visual img {
 }
 
 .card h3::before {
-  content: "";
+  content: "◆";
   display: inline-block;
-  width: 10px;
-  height: 10px;
+  width: auto;
+  height: auto;
   margin-right: 8px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 14%, transparent);
+  background: none;
+  box-shadow: none;
+  color: var(--accent);
   vertical-align: 0.1em;
 }
 
@@ -826,7 +881,8 @@ html[data-theme="dark"] .hero-visual img {
   padding: 12px;
   border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
   border-radius: 8px;
-  background: color-mix(in srgb, var(--card) 80%, var(--bg));
+  background: color-mix(in srgb, var(--card) 78%, var(--bg));
+  box-shadow: inset 4px 0 0 color-mix(in srgb, var(--scene-main) 44%, transparent);
 }
 
 .work-summary dt {
@@ -855,7 +911,7 @@ html[data-theme="dark"] .hero-visual img {
   padding: 8px 12px;
   color: var(--text);
   background: color-mix(in srgb, var(--card) 82%, var(--accent-soft));
-  border-radius: 999px;
+  border-radius: 6px;
   font-size: 13px;
   line-height: 1.35;
 }
@@ -872,7 +928,7 @@ html[data-theme="dark"] .hero-visual img {
   color: var(--scene-main);
   text-decoration: none;
   font-weight: 900;
-  border-radius: 999px;
+  border-radius: 6px;
   padding: 2px 0;
 }
 
@@ -896,23 +952,29 @@ html[data-theme="dark"] .hero-visual img {
   justify-content: center;
   gap: 8px;
   padding: 10px 14px;
-  border-radius: 999px;
+  border-radius: 6px;
   text-decoration: none;
   font-weight: 900;
   line-height: 1.35;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .btn-primary {
   background: linear-gradient(135deg, var(--scene-main), var(--accent-2));
-  color: white;
-  border: 1px solid transparent;
-  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.18);
+  color: #07130b;
+  border: 2px solid color-mix(in srgb, var(--text) 18%, transparent);
+  box-shadow: 0 5px 0 color-mix(in srgb, var(--text) 28%, transparent), 0 12px 28px rgba(37, 99, 235, 0.18);
 }
 
 .btn-ghost {
   background: var(--card);
   color: var(--text);
-  border: 1px solid var(--border);
+  border: 2px solid var(--border);
+  box-shadow: 0 5px 0 color-mix(in srgb, var(--scene-main) 18%, transparent);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
 }
 
 .contact-actions {
@@ -954,7 +1016,7 @@ html[data-theme="dark"] .hero-visual img {
 .link-item__label {
   width: fit-content;
   padding: 4px 8px;
-  border-radius: 999px;
+  border-radius: 4px;
   color: var(--scene-main);
   background: color-mix(in srgb, var(--scene-main) 10%, transparent);
   font-size: 12px;
@@ -1024,9 +1086,10 @@ footer {
   place-items: center;
   overflow: hidden;
   background:
-    radial-gradient(circle at 18% 18%, rgba(20, 184, 166, 0.12), transparent 34%),
-    radial-gradient(circle at 82% 24%, rgba(249, 115, 22, 0.14), transparent 32%),
+    linear-gradient(color-mix(in srgb, var(--scene-main) 13%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--accent-2) 12%, transparent) 1px, transparent 1px),
     linear-gradient(135deg, var(--bg) 0%, color-mix(in srgb, var(--accent-soft) 62%, var(--bg)) 48%, var(--bg-strong) 100%);
+  background-size: 24px 24px, 24px 24px, auto;
   animation: introSplashOut 1.6s cubic-bezier(.77, 0, .18, 1) forwards;
 }
 
@@ -1035,8 +1098,8 @@ footer {
   position: absolute;
   inset: 18%;
   border: 1px solid color-mix(in srgb, var(--scene-main) 12%, transparent);
-  border-radius: 999px;
-  transform: rotate(-5deg);
+  border-radius: 10px;
+  transform: rotate(-1deg);
 }
 
 .intro-splash__inner {
@@ -1054,7 +1117,7 @@ footer {
   border: 6px solid color-mix(in srgb, var(--scene-main) 14%, var(--card));
   border-top-color: var(--accent);
   border-right-color: var(--accent-2);
-  border-radius: 50%;
+  border-radius: 6px;
   box-shadow: 0 12px 28px rgba(37, 99, 235, 0.12);
   animation: loadingRing 1s linear infinite;
 }
@@ -1069,7 +1132,7 @@ footer {
   font-weight: 900;
   line-height: 1.1;
   color: var(--text);
-  text-shadow: 0 14px 32px rgba(37, 99, 235, 0.12);
+  text-shadow: var(--pixel-shadow), 0 14px 32px rgba(37, 99, 235, 0.12);
   animation: introTitleIn 1.45s cubic-bezier(.2, .9, .2, 1) forwards;
 }
 
@@ -1106,7 +1169,8 @@ footer {
   width: min(720px, 94%);
   max-height: 86vh;
   background: var(--card);
-  border-radius: 12px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
   padding: 18px;
   box-shadow: 0 24px 48px rgba(2,6,23,0.24);
   transform: translateY(8px) scale(0.995);
