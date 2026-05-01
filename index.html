@@ -42,6 +42,7 @@
   <meta name="theme-color" content="#f7fbff">
   <link rel="preload" href="style.css" as="style" onload="this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="style.css"></noscript>
+  <link rel="preload" href="images/hero-hud.png" as="image">
   <link rel="preload" href="script.js" as="script">
 
   <!-- Critical CSS: inline minimal styles for header/hero to reduce render-blocking -->
@@ -61,12 +62,15 @@
     .intro-splash{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:linear-gradient(rgba(37,99,235,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(20,184,166,.1) 1px,transparent 1px),linear-gradient(118deg,rgba(255,255,255,.72) 0 12%,transparent 12% 42%,rgba(255,204,77,.2) 42% 48%,transparent 48%),linear-gradient(180deg,#eef6ff 0%,#dff8ed 48%,#fff4cf 100%);background-size:24px 24px,24px 24px,auto,auto}
     html[data-intro-seen="true"] .intro-splash{display:none}
     .intro-splash__title{font-size:clamp(34px,7vw,72px);font-weight:900;line-height:1.1;letter-spacing:0;color:#182117;text-shadow:3px 3px 0 rgba(24,33,23,.16)}
-    .hero{display:grid;grid-template-columns:1fr minmax(240px,0.8fr);gap:32px;align-items:center;padding:64px 8%}
-    .hero h2{font-size:clamp(36px,6vw,64px);font-weight:900;line-height:1.25;margin:0 0 12px;text-shadow:3px 3px 0 rgba(24,33,23,.16)}
+    .hero{position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,420px);gap:32px;align-items:center;max-width:none;min-height:calc(100vh - 76px);padding:72px max(24px,6%) 80px;overflow:hidden;background:linear-gradient(90deg,rgba(4,13,28,.9) 0%,rgba(4,13,28,.66) 42%,rgba(4,13,28,.28) 100%),url("images/hero-hud.png") center/cover no-repeat;color:#f5ffe8}
+    .hero .hero-stage{position:absolute;left:max(18px,5%);right:max(18px,5%);bottom:18px;z-index:-1;max-width:none;margin:0;color:rgba(245,255,232,.08);font-size:128px;font-weight:900;line-height:.82;overflow-wrap:anywhere}
+    .hero h2{font-size:118px;font-weight:900;line-height:.95;margin:0 0 18px;text-shadow:3px 3px 0 rgba(0,0,0,.32);background:linear-gradient(135deg,#f5ffe8 0%,#4cc9f0 58%,#ffd166 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero p{color:rgba(245,255,232,.84)}
     .hero-visual img{width:100%;height:auto;border-radius:16px}
     .scroll-progress{position:fixed;top:0;left:0;width:100%;height:4px}
-    @media(max-width:768px){.hero{grid-template-columns:1fr;gap:20px;padding:40px 6%}.hero-visual{max-width:360px;margin-inline:auto}}
-    @media(max-width:600px){.menu-toggle{display:flex}}
+    @media(max-width:1000px){.hero h2{font-size:86px}.hero .hero-stage{font-size:92px}}
+    @media(max-width:768px){.hero{grid-template-columns:1fr;gap:20px;padding:54px 6% 70px}.hero h2{font-size:68px}.hero-visual{max-width:360px;margin-inline:auto}.hero .hero-stage{font-size:72px}}
+    @media(max-width:600px){.menu-toggle{display:flex}.hero{min-height:auto;padding-top:46px}.hero h2{font-size:48px}.hero .hero-stage{font-size:48px}}
     @media(max-width:600px){header{display:flex}}
   </style>
 </head>
@@ -107,6 +111,7 @@
 
 <main>
   <section class="hero" data-scene="intro">
+    <p class="hero-stage" aria-hidden="true">hamoXX819</p>
     <div class="hero-copy">
       <p class="eyebrow">Web &amp; App Development</p>
       <h2>課題解決第一！</h2>
