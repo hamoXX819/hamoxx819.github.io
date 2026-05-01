@@ -158,6 +158,7 @@ const iconSvg = {
   backend: '<svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="7" ry="3"/><path d="M5 5v7c0 1.7 3.1 3 7 3s7-1.3 7-3V5"/><path d="M5 12v7c0 1.7 3.1 3 7 3s7-1.3 7-3v-7"/></svg>',
   infra: '<svg viewBox="0 0 24 24"><path d="M17.5 18H8a5 5 0 1 1 1.2-9.8A6 6 0 0 1 20 12.5 3 3 0 0 1 17.5 18Z"/></svg>',
   language: '<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m7 10 3 2-3 2"/><path d="M12 15h5"/></svg>',
+  tool: '<svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5 5L4 17v3h3l5.7-5.7a4 4 0 0 0 5-5l-2.4 2.4-3-3 2.4-2.4Z"/><path d="M19 19 14 14"/></svg>',
   engineering: '<svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5 5L4 17v3h3l5.7-5.7a4 4 0 0 0 5-5l-2.4 2.4-3-3 2.4-2.4Z"/></svg>',
   usability: '<svg viewBox="0 0 24 24"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>',
   practical: '<svg viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/><path d="M4 19h16"/></svg>',
@@ -196,6 +197,7 @@ const cardData = {
     { className: 'skill-card-backend', icon: 'backend', title: 'バックエンド', tags: ['PHP', 'MySQL', 'Supabase'] },
     { className: 'skill-card-infra', icon: 'infra', title: 'インフラストラクチャ', tags: ['Linux', 'Docker', 'AWS', 'Azure'] },
     { className: 'skill-card-language', icon: 'language', title: '言語', tags: ['C', 'C#', 'SQL', 'Python', 'JavaScript', 'VBA'] },
+    { className: 'skill-card-tool', icon: 'tool', title: 'ツール', tags: ['Git', 'GitHub', 'VS Code', 'XAMPP', 'Chrome DevTools'] },
     { className: 'skill-card-engineering', icon: 'engineering', title: '機械工学', tags: ['CAD', '電気制御', 'PLC', '画像処理'] }
   ],
   works: [

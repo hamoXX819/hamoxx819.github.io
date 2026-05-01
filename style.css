@@ -712,6 +712,7 @@ html[data-theme="dark"] .hero-visual img {
 }
 
 .skill-card-backend .skill-icon,
+.skill-card-tool .skill-icon,
 .skill-card-engineering .skill-icon {
   color: var(--accent);
   background: color-mix(in srgb, var(--accent) 14%, var(--card));
