@@ -28,10 +28,13 @@
     (function () {
       try {
         const savedTheme = localStorage.getItem('theme');
+        const hasSeenIntro = localStorage.getItem('introSplashSeen') === 'true';
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         document.documentElement.dataset.theme = savedTheme || (prefersDark ? 'dark' : 'light');
+        document.documentElement.dataset.introSeen = hasSeenIntro ? 'true' : 'false';
       } catch (error) {
         document.documentElement.dataset.theme = 'light';
+        document.documentElement.dataset.introSeen = 'false';
       }
     }());
   </script>
@@ -56,6 +59,7 @@
     nav{justify-self:center}
     .menu-toggle{display:none}
     .intro-splash{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:linear-gradient(rgba(47,143,70,.13) 1px,transparent 1px),linear-gradient(90deg,rgba(35,166,213,.12) 1px,transparent 1px),linear-gradient(135deg,#f4f7ea 0%,#fff0b8 48%,#e3f7d6 100%);background-size:24px 24px,24px 24px,auto}
+    html[data-intro-seen="true"] .intro-splash{display:none}
     .intro-splash__title{font-size:clamp(34px,7vw,72px);font-weight:900;line-height:1.1;letter-spacing:0;color:#182117;text-shadow:3px 3px 0 rgba(24,33,23,.16)}
     .hero{display:grid;grid-template-columns:1fr minmax(240px,0.8fr);gap:32px;align-items:center;padding:64px 8%}
     .hero h2{font-size:clamp(36px,6vw,64px);font-weight:900;line-height:1.25;margin:0 0 12px;text-shadow:3px 3px 0 rgba(24,33,23,.16)}

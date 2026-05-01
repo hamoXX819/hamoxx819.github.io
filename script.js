@@ -8,26 +8,62 @@ const header = document.querySelector('header');
 const introSplash = document.getElementById('intro-splash');
 
 const root = document.documentElement;
+const INTRO_SEEN_KEY = 'introSplashSeen';
 let savedTheme = null;
+let hasSeenIntro = false;
 
 try {
   savedTheme = localStorage.getItem('theme');
+  hasSeenIntro = localStorage.getItem(INTRO_SEEN_KEY) === 'true';
 } catch (error) {
   savedTheme = null;
+  hasSeenIntro = false;
 }
 
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+const markIntroSeen = () => {
+  try {
+    localStorage.setItem(INTRO_SEEN_KEY, 'true');
+  } catch (error) {
+    // 保存できない環境では次回も初回扱いにする
+  }
+};
+
+const showReturnToast = () => {
+  const toast = document.createElement('div');
+  toast.className = 'return-toast';
+  toast.setAttribute('role', 'status');
+  toast.setAttribute('aria-live', 'polite');
+  toast.textContent = 'SAVE DATA LOADED';
+  document.body.appendChild(toast);
+
+  window.setTimeout(() => {
+    toast.classList.add('is-hidden');
+  }, 1800);
+
+  window.setTimeout(() => {
+    toast.remove();
+  }, 2400);
+};
+
 if (introSplash) {
-  if (prefersReducedMotion) {
+  if (hasSeenIntro) {
     introSplash.remove();
+    if (!prefersReducedMotion) {
+      showReturnToast();
+    }
+  } else if (prefersReducedMotion) {
+    introSplash.remove();
+    markIntroSeen();
   } else {
     document.body.classList.add('no-scroll');
     window.setTimeout(() => {
       introSplash.classList.add('is-hidden');
       document.body.classList.remove('no-scroll');
       introSplash.remove();
+      markIntroSeen();
     }, 1650);
   }
 }
