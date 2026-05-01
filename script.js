@@ -195,9 +195,9 @@ const cardData = {
     { className: 'skill-card-frontend', icon: 'frontend', title: 'フロントエンド', tags: ['HTML', 'CSS', 'JavaScript'] },
     { className: 'skill-card-mobile', icon: 'mobile', title: 'モバイル', tags: ['Flutter', 'Dart'] },
     { className: 'skill-card-backend', icon: 'backend', title: 'バックエンド', tags: ['PHP', 'MySQL', 'Supabase'] },
-    { className: 'skill-card-infra', icon: 'infra', title: 'インフラストラクチャ', tags: ['Linux', 'Docker', 'AWS', 'Azure'] },
+    { className: 'skill-card-infra', icon: 'infra', title: 'インフラストラクチャ', tags: ['Linux', 'AWS', 'Azure'] },
     { className: 'skill-card-language', icon: 'language', title: '言語', tags: ['C', 'C#', 'SQL', 'Python', 'JavaScript', 'VBA'] },
-    { className: 'skill-card-tool', icon: 'tool', title: 'ツール', tags: ['Git', 'GitHub', 'VS Code', 'XAMPP', 'Chrome DevTools'] },
+    { className: 'skill-card-tool', icon: 'tool', title: 'ツール', tags: ['Git', 'GitHub', 'VS Code', 'XAMPP', 'A5:SQL Mk-2', 'WireGuard', 'Docker'] },
     { className: 'skill-card-engineering', icon: 'engineering', title: '機械工学', tags: ['CAD', '電気制御', 'PLC', '画像処理'] }
   ],
   works: [
