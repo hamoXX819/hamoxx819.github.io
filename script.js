@@ -238,6 +238,18 @@ const cardData = {
   ],
   works: [
     {
+      title: 'Cyber Defense Grid',
+      text: 'React + TypeScriptで制作した、ブラウザで遊べるサイバー防衛タワーディフェンス風ゲームです。',
+      aboutText: '防御・監視・可視化をテーマにした、サイバーセキュリティ学習向けのブラウザゲームです。',
+      purpose: 'サイバー防衛の考え方を、ゲームとして分かりやすく体験できるようにすること。',
+      feature: 'Canvas APIによるゲーム描画と、React Hooks/useRefを使った状態管理。',
+      challenge: 'セキュリティを題材にしながら、攻撃手順ではなく防御・監視・可視化に焦点を当てる点を課題として考えました。',
+      implementation: ['React + TypeScript + Viteで画面を構成', 'Canvas APIとrequestAnimationFrameでゲームフィールドを描画', '防御ユニット・攻撃パケット・ウェーブ設定を分割して管理', 'localStorageで簡易ランキングを保存'],
+      learning: 'Canvas描画とReactの再レンダリング頻度を分けることで、操作性と保守性を両立しやすくなると学びました。',
+      tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Canvas API'],
+      repositoryUrl: 'https://github.com/hamoXX819/Cyber-Defense-Grid'
+    },
+    {
       title: '学校ポータルアプリ',
       text: 'Flutter + Supabaseで開発した、学生向けポータルアプリです。',
       aboutText: '学生が必要な情報を確認しやすくすることを目的にした、モバイル向けの制作物です。',
@@ -306,9 +318,12 @@ const renderWorkCards = (container, cards) => {
         </div>
       </dl>
     `;
+    const repositoryLink = card.repositoryUrl
+      ? `<a href="${card.repositoryUrl}" target="_blank" rel="noopener noreferrer">GitHub</a>`
+      : '<a href="#links">関連リンク</a>';
     const actions = includeActions ? `
       <div class="card-links">
-        <a href="#links">関連リンク</a>
+        ${repositoryLink}
         <button class="card-detail" type="button" aria-haspopup="dialog">詳細</button>
         <a href="#contact">連絡先</a>
       </div>
