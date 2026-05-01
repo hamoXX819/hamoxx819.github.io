@@ -585,38 +585,11 @@ main {
   margin-top: 24px;
 }
 
-.hero-points {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 22px;
-}
-
-.hero-points span,
 .tag-list span {
   border: 1px solid var(--border);
   background: var(--card);
   border-radius: 6px;
   font-weight: 800;
-}
-
-.hero-points span {
-  padding: 10px 14px;
-  color: var(--text);
-  box-shadow: inset 0 -3px 0 color-mix(in srgb, var(--scene-main) 16%, transparent);
-  transition: color 0.45s ease;
-}
-
-.hero-points span:nth-child(1) {
-  border-color: rgba(37, 99, 235, 0.2);
-}
-
-.hero-points span:nth-child(2) {
-  border-color: rgba(20, 184, 166, 0.24);
-}
-
-.hero-points span:nth-child(3) {
-  border-color: rgba(249, 115, 22, 0.24);
 }
 
 .profile-list {
@@ -1046,7 +1019,6 @@ html[data-theme="dark"] .hero-visual img {
   opacity: 0.72;
 }
 
-html[data-theme="dark"] .hero-points span,
 html[data-theme="dark"] .tag-list span {
   background: rgba(15, 23, 42, 0.45);
 }
@@ -1434,17 +1406,6 @@ footer {
 
   .hero-actions .btn {
     width: 100%;
-  }
-
-  .hero-points {
-    gap: 8px;
-    margin-top: 20px;
-  }
-
-  .hero-points span {
-    padding: 8px 10px;
-    font-size: 13px;
-    line-height: 1.35;
   }
 
   .hero-visual {
