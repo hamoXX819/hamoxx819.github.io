@@ -569,6 +569,7 @@ main {
   margin-bottom: 20px;
   letter-spacing: 0;
   text-shadow: var(--pixel-shadow), 0 8px 24px color-mix(in srgb, var(--scene-main) 22%, transparent);
+  white-space: nowrap;
 }
 
 .hero p {

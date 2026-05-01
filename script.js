@@ -238,7 +238,7 @@ const cardData = {
   ],
   works: [
     {
-      title: 'Cyber Defense Grid',
+      title: 'サイバー防衛タワーディフェンス',
       text: 'React + TypeScriptで制作した、ブラウザで遊べるサイバー防衛タワーディフェンス風ゲームです。',
       aboutText: '防御・監視・可視化をテーマにした、サイバーセキュリティ学習向けのブラウザゲームです。',
       purpose: 'サイバー防衛の考え方を、ゲームとして分かりやすく体験できるようにすること。',
